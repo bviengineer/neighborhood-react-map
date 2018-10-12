@@ -22,3 +22,6 @@ yarn-error.log*
 
 # old files
 /README.md.old 
+
+# text files
+/apikey.text
