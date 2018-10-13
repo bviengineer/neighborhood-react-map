@@ -1,3 +1,6 @@
+# Map
+The being used is [React Google Maps](https://tomchentw.github.io/react-google-maps/)
+
 <<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
