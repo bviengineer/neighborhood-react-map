@@ -1,15 +1,31 @@
 import React from "react";
 // import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 
+/*
+Sources:  
+  1. https://developers.google.com/maps/documentation/javascript/tutorial
+  2. https://www.youtube.com/watch?v=W5LhLZqj76s&index=2&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1
+*/
 class MyMap extends React.Component {
+  
+  //Initializes Google Map
+  initMap = () => {
+    const map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -34.397, lng: 150.644},
+      zoom: 8
+    });
+  }
+  
   render(){
     return (
-      <div>Hello</div>
+      <div id="map">Hello</div>
     )
   }
-
 }
 
+{/* <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+    async defer>
+</script> */}
 
 /*
   React Google Map Source: https://tomchentw.github.io/react-google-maps/
