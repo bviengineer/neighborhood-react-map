@@ -1,10 +1,21 @@
 import React from "react";
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+// import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+
+class MyMap extends React.Component {
+  render(){
+    return (
+      <div>Hello</div>
+    )
+  }
+
+}
 
 
 /*
-  React Google Map: https://tomchentw.github.io/react-google-maps/
-*/ 
+  React Google Map Source: https://tomchentw.github.io/react-google-maps/
+  React Google Map Tutorial: https://www.youtube.com/watch?v=Q0vzqlnWWZw&index=2&list=PL4rQq4MQP1crXuPtruu_eijgOUUXhcUCP
+
+
 const MyMapComponent = withScriptjs(withGoogleMap((props) =>
   <GoogleMap
     defaultZoom={10}
@@ -27,5 +38,6 @@ class MyMap extends React.Component {
     )
   }
 }
+*/ 
 
 export default MyMap; 
