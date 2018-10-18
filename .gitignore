@@ -25,3 +25,6 @@ yarn-error.log*
 
 # text files
 /apikey.text
+
+# folder
+src/api/
