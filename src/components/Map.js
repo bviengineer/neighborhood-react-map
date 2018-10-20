@@ -42,15 +42,17 @@ class MyMap extends React.Component {
   //Google Map setup with parameters 
   initMap = () => {
     const map = new window.google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
-      zoom: 8
+      center: {lat: 33.952879, lng: -83.992234
+      },
+      zoom: 15
     }); 
     
     //Map markers: https://developers.google.com/maps/documentation/javascript/markers
     const marker = new window.google.maps.Marker({
-      position: {lat: -34.397, lng: 150.644},
+      position: {lat: 33.952879, lng: -83.992234
+      },
       map: map,
-      title: 'Hello World!'
+      title: 'You are here!'
     });
   }
 
@@ -84,7 +86,7 @@ class MyMap extends React.Component {
         this.setState({
           locations: response.data.response.groups[0].items
         })
-        console.log("data after setting state", this.state.locations);
+        console.log("data inside of state", this.state.locations);
       }) //closing curly bracket & brace for function block and then, respectively
       .catch(function(err){
         console.log(err);
