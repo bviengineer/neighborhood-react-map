@@ -44,7 +44,14 @@ class MyMap extends React.Component {
     const map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: -34.397, lng: 150.644},
       zoom: 8
-    });  
+    }); 
+    
+    //Map markers: https://developers.google.com/maps/documentation/javascript/markers
+    const marker = new window.google.maps.Marker({
+      position: {lat: -34.397, lng: 150.644},
+      map: map,
+      title: 'Hello World!'
+    });
   }
 
     componentDidMount(){
