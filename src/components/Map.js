@@ -48,8 +48,8 @@ class MyMap extends React.Component {
   }
 
     componentDidMount(){
-    this.fetchSites(); //first determines if the data has been obtained
-    this.displayMap();//First checks to determine if the map has loaded before calling for it to be displayed
+      this.fetchLocations(); //first determines if the data has been obtained
+      this.displayMap();//First checks to determine if the map has loaded before calling for it to be displayed
   }
   
   //Calls initJScript defined at bottom of file
@@ -61,18 +61,18 @@ class MyMap extends React.Component {
   }
 
   //Fetches Locations
-  fetchSites = () => {
+  fetchLocations = () => {
     const searchParams = {
       client_id: "0TL2LRJP0WLJYNYCVGZKZ4L1YRG50I5CLNP2XG0DUVSUEB2O",
       client_secret: "4Q21F123T1T05GXLBP1TDEHPTPNLFBJKK341OGNFERSIGYDY",
-      query: "food",
+      query: "library",
       near: "Lawrenceville, GA",
       // limit: 50,  
       v: "20181015"    
     } //closing curly bracket for searchParams object
     
     axios.get(locationsRequest + new URLSearchParams(searchParams))
-      .then( (response) => {
+      .then( response => {
         //console.log(response.data.response.groups[0].items); //for testing
         this.setState({
           locations: response.data.response.groups[0].items
