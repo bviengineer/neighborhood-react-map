@@ -44,31 +44,32 @@ class MyMap extends React.Component {
     const map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: 33.952879, lng: -83.992234
       },
-      zoom: 15
+      zoom: 10.5 
     }); 
 
-    //Will loop through the list of locations inside of the state object and add markers for each one, to the map
-    this.state.locations.map((location, index) => {
-      position: {lat: location.venue.location.lat, lng: location.venue.location.lng
-      }
-    });
-    
-    /*
-      1. Map markers: https://developers.google.com/maps/documentation/javascript/markers
-    
+     /*
+      1. Map markers: https://developers.google.com/maps/documentation/javascript/markers    
       2. Lat | Long coordinates: https://citylatitudelongitude.com/GA/Lawrenceville.htm
     */
-    const marker = new window.google.maps.Marker({
-      position: {lat: 33.952879, lng: -83.992234
-      },
-      map: map,
-      title: 'You are here!'
+  
+    //  const marker = new window.google.maps.Marker({
+  //   position: {lat: 33.952879, lng: -83.992234}, 
+  //   map: map,
+  //   title: 'Lawrenceville, GA, U.S.A'
+  // });
+  
+  this.state.locations.map(destination => {
+      const marker = new window.google.maps.Marker({
+        position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng}, 
+        map: map,
+        title: destination.venue.name
+      });
     });
-  }
+  } //closing curly brace for initMap()
 
     componentDidMount(){
       this.fetchLocations(); //first determines if the data has been obtained
-      this.displayMap();//First checks to determine if the map has loaded before calling for it to be displayed
+      //this.displayMap();//First checks to determine if the map has loaded before calling for it to be displayed
   }
   
   //Calls initJScript defined at bottom of file
@@ -95,7 +96,7 @@ class MyMap extends React.Component {
         //console.log(response.data.response.groups[0].items); //for testing
         this.setState({
           locations: response.data.response.groups[0].items
-        })
+        }, this.displayMap())
         console.log("data inside of state", this.state.locations);
       }) //closing curly bracket & brace for function block and then, respectively
       .catch(function(err){
@@ -130,34 +131,3 @@ function initJScript(srcURL){
 } 
 
 export default MyMap; 
-
-/*
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-
-  React Google Map Source: https://tomchentw.github.io/react-google-maps/
-  React Google Map Tutorial: https://www.youtube.com/watch?v=Q0vzqlnWWZw&index=2&list=PL4rQq4MQP1crXuPtruu_eijgOUUXhcUCP
-
-
-const MyMapComponent = withScriptjs(withGoogleMap((props) =>
-  <GoogleMap
-    defaultZoom={10}
-    defaultCenter={{ lat: -34.397, lng: 150.644 }}
-  >
-    {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />}
-  </GoogleMap>
-));
-
-class MyMap extends React.Component {
-  render(){
-    return(
-      <MyMapComponent
-        isMarkerShown
-        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyASu5vRNNzFx1JFJz7SVAIJJoRH9VJcST4"
-        loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `625px` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
-      />
-    )
-  }
-}
-*/
