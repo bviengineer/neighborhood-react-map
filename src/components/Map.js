@@ -46,8 +46,18 @@ class MyMap extends React.Component {
       },
       zoom: 15
     }); 
+
+    //Will loop through the list of locations inside of the state object and add markers for each one, to the map
+    this.state.locations.map((location, index) => {
+      position: {lat: location.venue.location.lat, lng: location.venue.location.lng
+      }
+    });
     
-    //Map markers: https://developers.google.com/maps/documentation/javascript/markers
+    /*
+      1. Map markers: https://developers.google.com/maps/documentation/javascript/markers
+    
+      2. Lat | Long coordinates: https://citylatitudelongitude.com/GA/Lawrenceville.htm
+    */
     const marker = new window.google.maps.Marker({
       position: {lat: 33.952879, lng: -83.992234
       },
