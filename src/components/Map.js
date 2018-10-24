@@ -5,29 +5,11 @@ Sources:
   3. Tutorial https://www.youtube.com/watch?v=W5LhLZqj76s&index=2&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1
   4. Axios HttpRequest Method: https://github.com/axios/axios
   5. //https://youtu.be/hzLDsxPGctY (fetch tutorial) - DID NOT USE
-            constructor(props){
-              super(props);
-              this.state = {
-                items: [],
-                isLoaded: false,
-              }
-            }
-            componentDidMount(){
-            fetch("")
-            .then(res => res.json())
-            .then(json => {
-              this.setState({
-                isLoaded: true,
-                items: json,
-              });
-            });
-          }
 */
 
 //Imports
 import React from "react";
 import axios from "axios";
-
 
 //End Point Variables 
 const locationsRequest = "https://api.foursquare.com/v2/venues/explore?";
@@ -50,14 +32,7 @@ class MyMap extends React.Component {
      /*
       1. Map markers: https://developers.google.com/maps/documentation/javascript/markers    
       2. Lat | Long coordinates: https://citylatitudelongitude.com/GA/Lawrenceville.htm
-    */
-  
-    //  const marker = new window.google.maps.Marker({
-  //   position: {lat: 33.952879, lng: -83.992234}, 
-  //   map: map,
-  //   title: 'Lawrenceville, GA, U.S.A'
-  // });
-  
+    */  
   this.state.locations.map(destination => {
       const marker = new window.google.maps.Marker({
         position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng}, 
@@ -80,7 +55,7 @@ class MyMap extends React.Component {
     window.initMap = this.initMap;
   }
 
-  //Fetches Locations
+  //Parameters for fetching library locations
   fetchLocations = () => {
     const searchParams = {
       client_id: "0TL2LRJP0WLJYNYCVGZKZ4L1YRG50I5CLNP2XG0DUVSUEB2O",
@@ -91,6 +66,7 @@ class MyMap extends React.Component {
       v: "20181015"    
     } //closing curly bracket for searchParams object
     
+    //Request to fourSquare API to retrieve data, using Axios
     axios.get(locationsRequest + new URLSearchParams(searchParams))
       .then( response => {
         //console.log(response.data.response.groups[0].items); //for testing
