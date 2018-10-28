@@ -2,79 +2,82 @@
 Sources:  
   1. Google Map: https://developers.google.com/maps/documentation/javascript/tutorial
   2. FourSqure API (for venue data): https://developer.foursquare.com/docs/api/venues/explore
-  3. Tutorial https://www.youtube.com/watch?v=W5LhLZqj76s&index=2&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1
-  4. Axios HttpRequest Method: https://github.com/axios/axios
-  5. //https://youtu.be/hzLDsxPGctY (fetch tutorial) - DID NOT USE
+  3. Axios HttpRequest Method: https://github.com/axios/axios
+  4. Info Window: https://developers.google.com/maps/documentation/javascript/infowindows
+  5. Map markers: https://developers.google.com/maps/documentation/javascript/markers    
+  6. Lat | Long coordinates: https://citylatitudelongitude.com/GA/Lawrenceville.htm
+    
+  7. Tutorial https://www.youtube.com/watch?v=W5LhLZqj76s&index=2&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1
+  
+  https://youtu.be/hzLDsxPGctY (fetch tutorial) - DID NOT USE
 */
+
 
 //Imports
 import React from "react";
-import axios from "axios";
+import axios from "axios"; //will handle request to API
 
-//End Point Variables 
-const locationsRequest = "https://api.foursquare.com/v2/venues/explore?";
+//variable
+const locationsRequest = "https://api.foursquare.com/v2/venues/explore?"; //End Point Variable
 
 
+//Map Component Class
 class MyMap extends React.Component {
   constructor(props){
     super(props);
       this.state = { locations: [] }; //will hold locations fetched from fourSquare API
-  }
+  }//closing curly brace for Constructor function
 
-  //Google Map setup with parameters 
+  
+  //Google Map setup with initial lat lng parameters 
   initMap = () => {
     const map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: 33.952879, lng: -83.992234
       },
       zoom: 10.5 
-    }); 
+    }); //closing curly brace & bracket for new map variable
 
-    //Info Window Source: https://developers.google.com/maps/documentation/javascript/infowindows
-    //Creates the info window that appears after clicking on a map marker
-      const infowindow = new window.google.maps.InfoWindow();
+     //Creates an info window object that will appear on the map for each destination
+    const infowindow = new window.google.maps.InfoWindow();
 
-     /*
-      1. Map markers: https://developers.google.com/maps/documentation/javascript/markers    
-      2. Lat | Long coordinates: https://citylatitudelongitude.com/GA/Lawrenceville.htm
-
-      3. Show map markers for location data fetched via the API
-    */  
+    //Will loop through the array of destinations returned from the fetch request 
     this.state.locations.map(destination => {
   
-      //Var for Infowindow
-      const contentString = `${destination.venue.name}`;
+      //Infowindow variable that will display content on the map marker for a given destination
+      const infoWindowData = `${destination.venue.name}`;
     
-      //Creats a map marker & places it on the map
+      
+      //Creats a map marker for each destnation in the appray and & adds them to the map
       const marker = new window.google.maps.Marker({
         position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
         map: map,
         title: destination.venue.name
       });
 
-       //Event listener for infowindow map marker
-       marker.addListener('click', function() {
-        infowindow.setContent(contentString);
+
+       //Event listener for each map marker that will pop up an infowindow
+       marker.addListener('click', function(){
+        infowindow.setContent(infoWindowData);
         infowindow.open(map, marker);
       });
-    
-
     }); //closing curl brace & bracket for this.state.loctions.map
   } //closing curly brace for initMap()
 
-    componentDidMount(){
-      this.fetchLocations(); //first determines if the data has been obtained
-      //this.displayMap();//First checks to determine if the map has loaded before calling for it to be displayed
+  
+  componentDidMount(){
+    this.fetchLocations(); //first determines if the data has been obtained
+    //this.displayMap();//First checks to determine if the map has loaded before calling for it to be displayed
   }
   
   //Calls initJScript defined at bottom of file
   displayMap = () => {
     initJScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyASu5vRNNzFx1JFJz7SVAIJJoRH9VJcST4&callback=initMap");
     
-    //binds this to the map initilization
+    //binds this to the google map and requires adding window in front of a new google map constructor
     window.initMap = this.initMap;
   }
 
-  //Parameters for fetching library locations
+  //Parameters for fetching library locations & API
   fetchLocations = () => {
     const searchParams = {
       client_id: "0TL2LRJP0WLJYNYCVGZKZ4L1YRG50I5CLNP2XG0DUVSUEB2O",
@@ -115,7 +118,6 @@ function initJScript will:
 3. get the URL passed to the newly created script tag
 4. insert the newly created script tag before the existing script tag.
 */
-
 function initJScript(srcURL){
   const initialScript = window.document.getElementsByTagName("script")[0]; 
   const newScript = window.document.createElement("script");
