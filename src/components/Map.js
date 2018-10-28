@@ -34,7 +34,7 @@ class MyMap extends React.Component {
     const map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: 33.952879, lng: -83.992234
       },
-      zoom: 10.5 
+      zoom: 10
     }); //closing curly brace & bracket for new map variable
 
      //Creates an info window object that will appear on the map for each destination
