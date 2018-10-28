@@ -29,32 +29,35 @@ class MyMap extends React.Component {
       zoom: 10.5 
     }); 
 
+    //Info Window Source: https://developers.google.com/maps/documentation/javascript/infowindows
+    //Creates the info window that appears after clicking on a map marker
+      const infowindow = new window.google.maps.InfoWindow();
+
      /*
       1. Map markers: https://developers.google.com/maps/documentation/javascript/markers    
       2. Lat | Long coordinates: https://citylatitudelongitude.com/GA/Lawrenceville.htm
-    */  
-  this.state.locations.map(destination => {
-    
-    //Info Window Source: https://developers.google.com/maps/documentation/javascript/infowindows
-    const contentString = `${destination.venue.name}`;
 
-      //Creates the info window that appears after clicking on a map marker
-      const infowindow = new window.google.maps.InfoWindow({
-      content: contentString
-      });
+      3. Show map markers for location data fetched via the API
+    */  
+    this.state.locations.map(destination => {
+  
+      //Var for Infowindow
+      const contentString = `${destination.venue.name}`;
     
       //Creats a map marker & places it on the map
       const marker = new window.google.maps.Marker({
-        position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng}, 
+        position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
         map: map,
         title: destination.venue.name
       });
 
-       //Event listener for map marker
+       //Event listener for infowindow map marker
        marker.addListener('click', function() {
+        infowindow.setContent(contentString);
         infowindow.open(map, marker);
       });
     
+
     }); //closing curl brace & bracket for this.state.loctions.map
   } //closing curly brace for initMap()
 
