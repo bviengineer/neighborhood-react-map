@@ -44,7 +44,11 @@ class MyMap extends React.Component {
     this.state.locations.map(destination => {
   
       //Infowindow variable that will display content on the map marker for a given destination
-      const infoWindowData = `${destination.venue.name}`;
+      const infoWindowData = `<strong>${destination.venue.name}</strong> <br>
+      ${destination.venue.location.address} <br>
+      ${destination.venue.location.formattedAddress[1]} <br>
+      ${destination.venue.location.country}`
+      ;
     
       
       //Creats a map marker for each destnation in the appray and & adds them to the map
