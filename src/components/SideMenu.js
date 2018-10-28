@@ -3,7 +3,7 @@ import React from "react";
 
 
 //Sidebar with returned locations
-class Listings extends React.Component {
+class ListingsContainer extends React.Component {
   render(){
     return(
       <div className="side-bar">
@@ -13,4 +13,4 @@ class Listings extends React.Component {
   }
 }
 
-export default Listings;
+export default ListingsContainer;
