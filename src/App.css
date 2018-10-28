@@ -53,6 +53,7 @@ html, body {
 h1 {
   background-color: rgba(10,50,100,0.5);
   margin: 0;
+  padding: 10px;
 }
 
 .side-bar {
