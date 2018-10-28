@@ -17,8 +17,11 @@ Sources:
 import React from "react";
 import axios from "axios"; //will handle request to API
 
-//variable
+//variables
 const locationsRequest = "https://api.foursquare.com/v2/venues/explore?"; //End Point Variable
+//Longitude & Latitude variables to be used in map
+const lat = 33.952879,
+      lng = -83.992234;
 
 
 //Map Component Class
@@ -32,7 +35,7 @@ class MyMap extends React.Component {
   //Google Map setup with initial lat lng parameters 
   initMap = () => {
     const map = new window.google.maps.Map(document.getElementById('map'), {
-      center: {lat: 33.952879, lng: -83.992234
+      center: {lat: lat, lng: lng
       },
       zoom: 10
     }); //closing curly brace & bracket for new map variable
