@@ -1,7 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import MyMap from  "./components/Map.js";
-import Listings from "./components/SideMenu.js";
+import ListingsContainer from "./components/SideMenu.js";
 // import FourSqureAPI from "./api/index.js";
 import './App.css'; 
 
@@ -10,7 +10,7 @@ class App extends React.Component{
     return(
       <div>
         <h1 className="listings-title">Local Listings</h1>
-        <Listings />
+        <ListingsContainer /> 
         <MyMap />
       </div>
     )
