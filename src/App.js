@@ -7,7 +7,10 @@ import './App.css';
 class App extends React.Component{
   render(){
     return(
-      <MyMap />
+      <div>
+        <h1>Local Libraries</h1>
+        <MyMap />
+      </div>
     )
   }  
  }
