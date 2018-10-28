@@ -37,7 +37,7 @@ class MyMap extends React.Component {
     const map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: lat, lng: lng
       },
-      zoom: 10
+      zoom: 12
     }); //closing curly brace & bracket for new map variable
 
      //Creates an info window object that will appear on the map for each destination
@@ -109,9 +109,7 @@ class MyMap extends React.Component {
       }) //closing curly bracket & brace for function block and catch, respectively
   }
   render(){
-    return (
-      <div id="map"></div> //container for map
-    )
+    return <div id="map"></div> //container for map
   }   
 }
 
