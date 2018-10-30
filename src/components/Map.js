@@ -16,17 +16,16 @@ Sources:
 //IMPORTS
 import React from "react";
 import axios from "axios"; //will handle request to API
+// import { Locations } from "./Locations.js";
 
 //VARIABLES
 const locationsRequest = "https://api.foursquare.com/v2/venues/explore?"; //End Point Variable
-
-//Longitude & Latitude variables to be used in map
-const lat = 33.952879,
-      lng = -83.992234;
+const lat = 33.952879, //longtitude for map
+      lng = -83.992234; //latitude for map
 
 
 //Map Component Class
-class MyMap extends React.Component {
+export class MyMap extends React.Component {
   constructor(props){
     super(props);
       this.state = { locations: [] }; //will hold locations fetched from fourSquare API
@@ -94,7 +93,7 @@ class MyMap extends React.Component {
       // limit: 50,  
       v: "20181015"    
     } //closing curly bracket for searchParams object
-    
+
     //Request to fourSquare API to retrieve data, using Axios
     axios.get(locationsRequest + new URLSearchParams(searchParams))
       .then( response => {
@@ -107,9 +106,16 @@ class MyMap extends React.Component {
       .catch(function(err){
         console.log(err);
       }) //closing curly bracket & brace for function block and catch, respectively
-  }
-  render(){
-    return <div id="map"></div> //container for map
+    }    
+  
+    render(){
+      const venuList = this.state.locations;    
+    return (
+      <div>
+        <div id="map"></div> //container for map
+        {/* <Locations venuList={this.locations} /> */}
+      </div>
+    )
   }   
 }
 
@@ -132,4 +138,4 @@ function initJScript(srcURL){
   initialScript.parentNode.insertBefore(newScript, initialScript)
 } 
 
-export default MyMap; 
+// export default MyMap; 
