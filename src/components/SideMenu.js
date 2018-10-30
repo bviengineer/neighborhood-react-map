@@ -3,7 +3,7 @@ import React from "react";
 
 
 //Sidebar with returned locations
-export const ListingsContainer = () => {
+export const SideMenu = () => {
     return(
       <div className="side-bar">
         <p>Search Results will go here</p>
