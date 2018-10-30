@@ -1,7 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import MyMap from  "./components/Map.js";
-import ListingsContainer from "./components/SideMenu.js";
+import { ListingsContainer } from "./components/SideMenu.js";
 // import FourSqureAPI from "./api/index.js";
 import './App.css'; 
 
