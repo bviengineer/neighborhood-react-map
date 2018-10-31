@@ -16,7 +16,7 @@ Sources:
 //IMPORTS
 import React from "react";
 import axios from "axios"; //will handle request to API
-// import { Locations } from "./Locations.js";
+import { Locations } from "./Locations.js";
 
 //VARIABLES
 const locationsRequest = "https://api.foursquare.com/v2/venues/explore?"; //End Point Variable
@@ -29,9 +29,10 @@ export class MyMap extends React.Component {
   constructor(props){
     super(props);
       this.state = { locations: [] }; //will hold locations fetched from fourSquare API
+      // this.handleState = this.handleState.bind(this)
   }//closing curly brace for Constructor function
 
-  
+
   //Google Map setup with initial lat lng parameters 
   initMap = () => {
     const map = new window.google.maps.Map(document.getElementById('map'), {
@@ -39,27 +40,27 @@ export class MyMap extends React.Component {
       zoom: 12
     }); //closing curly brace & bracket for new map variable
 
+
      //Creates an info window object that will appear on the map for each destination
     const infowindow = new window.google.maps.InfoWindow();
 
+
     //Will loop through the array of destinations returned from the fetch request 
     this.state.locations.map(destination => {
-  
+        
       //Infowindow variable that will display content on the map marker for a given destination
       const infoWindowData = `<strong>${destination.venue.name}</strong> <br>
-      ${destination.venue.location.address} <br>
-      ${destination.venue.location.formattedAddress[1]} <br>
-      ${destination.venue.location.country}`
+        ${destination.venue.location.address} <br>
+        ${destination.venue.location.formattedAddress[1]} <br>
+        ${destination.venue.location.country}`
       ;
     
-      
-      //Creats a map marker for each destnation in the appray and & adds them to the map
+        //Creats a map marker for each destnation in the appray and & adds them to the map
       const marker = new window.google.maps.Marker({
         position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
         map: map,
         title: destination.venue.name
       });
-
 
        //Event listener for each map marker that will pop up an infowindow
        marker.addListener('click', function(){
@@ -97,11 +98,16 @@ export class MyMap extends React.Component {
     //Request to fourSquare API to retrieve data, using Axios
     axios.get(locationsRequest + new URLSearchParams(searchParams))
       .then( response => {
-        //console.log(response.data.response.groups[0].items); //for testing
-        this.setState({
+        
+        console.log(response); //testing this is the returned data from the API fetch
+        console.log(response.data.response.groups[0].items[0].venue.name); //for testing
+        
+        this.setState({ 
           locations: response.data.response.groups[0].items
-        }, this.displayMap())
-        console.log("data inside of state", this.state.locations);
+        }, 
+          this.displayMap())
+            // venuListing = this.state.locations //remove THIS            
+            //console.log("data inside of state",  this.state.locations);
       }) //closing curly bracket & brace for function block and then, respectively
       .catch(function(err){
         console.log(err);
@@ -109,11 +115,10 @@ export class MyMap extends React.Component {
     }    
   
     render(){
-      const venuList = this.state.locations;    
     return (
       <div>
         <div id="map"></div> //container for map
-        {/* <Locations venuList={this.locations} /> */}
+        <Locations venuList={this.state.locations} />
       </div>
     )
   }   

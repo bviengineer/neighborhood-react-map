@@ -10,7 +10,7 @@ class App extends React.Component{
     return(
       <div>
         <h1 className="listings-title">Local Listings</h1>
-        <SideMenu /> 
+        <SideMenu listings={this.state}/> 
         <MyMap />
       </div>
     )
