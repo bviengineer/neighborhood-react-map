@@ -1,10 +1,29 @@
 import React from "react";
 import { Map } from "./Map.js"; //to hold map
 import { SideMenu } from "./SideMenu.js"; //display list of returned locations
+import axios from "axios"; //will handle request to API
+import FourSqureAPI from "../api/index.js";
+
+
+//VARIABLES
+const locationsRequest = "https://api.foursquare.com/v2/venues/explore?"; //End Point Variable
 
 
 //Rendering in App.js
 export class Content extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      locations: []
+    }
+  }
+
+
+  componentDidMount(){
+
+
+  }
+  
   render(){
     return (
       <div> 
@@ -23,4 +42,3 @@ export class Content extends React.Component {
  utlize data
 5. work search feature
  */
- 

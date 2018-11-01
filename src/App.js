@@ -67,18 +67,12 @@ export class App extends React.Component{
 4. Footer component - DONE
 5. Initialize map - DONE
 
-
+//=====================================================================
 /*import React from 'react';
-import axios from "axios"; //will handle request to API
+
 //import logo from './logo.svg';
 import { MyMap } from  "./components/Map.js";
 import { SideMenu } from "./components/SideMenu.js";
-// import FourSqureAPI from "./api/index.js";
-
-
-
-//VARIABLES
-const locationsRequest = "https://api.foursquare.com/v2/venues/explore?"; //End Point Variable
 
 
 class App extends React.Component{
