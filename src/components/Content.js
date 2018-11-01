@@ -2,7 +2,7 @@ import React from "react";
 import { Map } from "./Map.js"; //to hold map
 import { SideMenu } from "./SideMenu.js"; //display list of returned locations
 import axios from "axios"; //will handle request to API
-import FourSqureAPI from "../api/index.js";
+//import FourSqureAPI from "../api/index.js"; GETTING DATA whether or not this is imported 
 
 
 //VARIABLES
@@ -22,45 +22,87 @@ export class Content extends React.Component {
   constructor(props){
     super(props);
     this.state = { locations: [] }
-    //this.componentDidMount = this.componentDidMount.bind(this)
   }
 
   //Method will call API after map renders
-  componentDidMount(){
-    //Request to fourSquare API to retrieve data, using Axios
+  componentWillMount(){
     axios.get(locationsRequest + new URLSearchParams(searchParams))
       .then( response => {        
-        console.log(response); //testing this is the returned data from the API fetch
-        // console.log(response.data.response.groups[0].items[0].venue.name); //for testing        
-        this.setState({ 
+        console.log(response); //testing; returned data from the API fetch 
+        this.setState({
           locations: response.data.response.groups[0].items
         })         
-            //console.log("data inside of state",  this.state.locations);
-      }) //closing curly bracket & brace for function block and then, respectively
+            //console.log("data after setting state",  this.state.locations); //testing purposes
+      })
       .catch(function(err){
         console.log(err);
-      }) //closing curly bracket & brace for function block and catch, respectively
+      })
     }
-
-  //Parameters for fetching locations from API
-  // fetchLocations = () => {
-  // }
   
   render(){
+    // console.log("content component render ", this.state.locations);
+    //let locations = this.state.locations; 
+    //console.log("locations var from content component", locations) //testing to see if returned location data was assigned to var
     return (
       <div> 
-        <Map note="Map is loading..." />
-        <SideMenu />
+        <Map note="Map is loading..." locations={this.state.locations}/>
+        <SideMenu locations={this.state.locations}/>
       </div>
     );
   }
 }
 
 /*
-1. get locations data using component did mount life
-2. put that data in a state
+1. get locations data using component did mount life - DONE
+2. put that data in a state - DONE 
 3.  define props for both map componet and sidebar
 4. Go to each child componet and 
  utlize data
 5. work search feature
  */
+
+ /*
+//Map Component Class
+export class Map extends React.Component {
+
+  componentDidUpdate(){
+    // this.addMapMarkers(this.props.locations);
+    // console.log("test from cdidupdate ", this.props.locations)
+  }
+  //Will loop through the array of destinations returned from the fetch request   
+  addMapMarkers = (locations) => {
+    console.log("window.google ", window.google)
+   if(window.google){
+      console.log("from addMapMarkers ", window.map)
+      locations.map(destination => {
+            
+        //Infowindow variable that will display content on the map marker for a given destination
+        const infoWindowData = `<strong>${destination.venue.name}</strong> <br>
+          ${destination.venue.location.address} <br>
+          ${destination.venue.location.formattedAddress[1]} <br>
+          ${destination.venue.location.country}`
+        ;
+      
+          //Creats a map marker for each destnation in the appray and & adds them to the map
+        let marker = new window.google.maps.Marker({
+          position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
+          map: window.map,
+          title: destination.venue.name
+        });
+        
+         //Event listener for each map marker that will pop up an infowindow
+         marker.addListener('click', function(){
+          window.infowindow.setContent(infoWindowData);
+          window.infowindow.open(window.map, marker);
+        });
+      }); //closing curl brace & bracket for this.state.loctions.map
+    }    
+  }  
+  
+    render(){
+      this.addMapMarkers(this.props.locations);
+      console.log("test from cdidupdate ", this.props.locations)
+    return <div id="map"></div>
+  }   
+}
+*/
