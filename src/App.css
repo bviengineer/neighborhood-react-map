@@ -4,11 +4,11 @@
 
 #map {
   height: 100vh;
-  background-color: rgba(10, 50, 100, 0.5);
+  background-color: rgba(190, 213, 241, 0.3);
 }
 
 .map-loading {
-  color: red;
+  color: crimson;
   font-size: 40px;
   text-align: center
 }
