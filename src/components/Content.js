@@ -1,8 +1,8 @@
 import React from "react";
-import { Map } from "./components/Map.js"; //to hold map
-import { SideMenu } from "./components/SideMenu.js"; //display list of returned locations
+import Map from "./Map.js"; //to hold map
+import SideMenu from "./SideMenu.js"; //display list of returned locations
 
-export class Content extends React.Component {
+class Content extends React.Component {
   render(){
     return (
       <div>
@@ -13,3 +13,5 @@ export class Content extends React.Component {
     );
   }
 }
+
+export default Content;
