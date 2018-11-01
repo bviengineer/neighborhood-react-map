@@ -10,7 +10,18 @@ const lat = 33.952879, //longtitude for map
 
 //Rendering in Index.js
 export class App extends React.Component{
-  //Sets up script tag & corresponding parameters for map *****CITE SOURCE*********************************
+  /* Sources for initJScript function:
+    1. https://www.klaasnotfound.com/2016/11/06/making-google-maps-work-with-react/
+    2. https://www.youtube.com/watch?v=W5LhLZqj76s&index=2&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1
+
+    function initJScript will:
+    1. obtain the first script tag in the index.html
+    2. create a new script tag
+    3. get the URL passed to the newly created script tag
+    4. insert the newly created script tag before the existing script tag.
+    */
+
+  //Sets up script tag & corresponding parameters for map
   initJScript(srcURL){
     const initialScript = window.document.getElementsByTagName("script")[0]; 
     const newScript = window.document.createElement("script");
@@ -66,23 +77,4 @@ export class App extends React.Component{
 
 4. Footer component - DONE
 5. Initialize map - DONE
-
-//=====================================================================
-     
-
-  
-  
-  render(){
-    //this.displayMap();
-    //console.log("data from render ", this.state.locations)
-    return(
-      <div>
-        <h1 className="listings-title">Local Listings</h1>
-        <MyMap locations={this.state.locations}/>
-      </div>
-    )
-  }  
- }
-
-export default App;
 */
