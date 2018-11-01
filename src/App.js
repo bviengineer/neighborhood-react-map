@@ -1,4 +1,58 @@
-import React from 'react';
+import React from "react"; 
+import { Header } from "./components/Header.js"; //header bar
+import { Content } from "./components/Content.js"; //content container
+import { Footer } from "./components/Footer.js"; //footer information
+
+class App extends React.Component{
+  render(){
+    return (
+      <div>
+        <Header title="HEADER: React Neighborhood Map - rendering from within App.js " />
+        <Content title="Content component rendering from within App.js" />
+        <Footer title="Footer component - reporting from within App.js" />
+      </div> 
+    );
+  }
+}
+
+export default App;
+
+/* App Component contains:
+1. Title bar or heading
+2. content 
+    Content container contains
+    a. sidebar componenet
+    b. map container
+    c. api request to get data from API & pass it to map
+    
+3. Apply info window & map markers to map
+4. Initialize map
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import React from 'react';
 import axios from "axios"; //will handle request to API
 //import logo from './logo.svg';
 import { MyMap } from  "./components/Map.js";
@@ -98,3 +152,4 @@ class App extends React.Component{
  }
 
 export default App;
+*/

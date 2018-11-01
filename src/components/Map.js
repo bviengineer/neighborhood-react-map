@@ -1,3 +1,13 @@
+import React from "react";
+
+export class Map extends React.Component{
+  render(){
+    return <h1>{this.props.title}</h1>
+  }
+}
+
+
+
 /*
 Sources:  
   1. Google Map: https://developers.google.com/maps/documentation/javascript/tutorial
@@ -10,7 +20,7 @@ Sources:
   7. Tutorial https://www.youtube.com/watch?v=W5LhLZqj76s&index=2&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1
   
   https://youtu.be/hzLDsxPGctY (fetch tutorial) - DID NOT USE
-*/
+
 
 
 //IMPORTS
@@ -23,7 +33,7 @@ import { Locations } from "./Locations.js";
 
 
 //Map Component Class
-export class MyMap extends React.Component {
+export class Map extends React.Component {
 
   componentDidUpdate(){
     // this.addMapMarkers(this.props.locations);
