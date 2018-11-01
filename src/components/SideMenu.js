@@ -1,16 +1,14 @@
-//imports
 import React from "react";
-// import { Locations } from "./Locations.js";
-import { Input } from "./Input.js"
+import { Search } from "./Search.js"
 
-//Stateless Functional Component is responsible for rendering the container that will host the list of venues
-const SideMenu = () => {
-    return(
+
+//Rendering in Content.js
+export class SideMenu extends React.Component {
+  render(){
+    return (
       <div className="side-bar">
-        <Input userInput="User search term here"/>
-        {/* <Locations title="Rendering Locations Component from inside SideMenu Component"/> */}
+        <Search userInput="User search term here"/>
       </div>
-    )
+    );
   }
-
-export default SideMenu;
+}

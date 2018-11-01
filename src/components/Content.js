@@ -1,17 +1,26 @@
 import React from "react";
-import Map from "./Map.js"; //to hold map
-import SideMenu from "./SideMenu.js"; //display list of returned locations
+import { Map } from "./Map.js"; //to hold map
+import { SideMenu } from "./SideMenu.js"; //display list of returned locations
 
-class Content extends React.Component {
+
+//Rendering in App.js
+export class Content extends React.Component {
   render(){
     return (
-      <div>
-        <h1>{this.props.title}</h1> 
-        <Map title="Map component - rendering from content component" />
-        <SideMenu title="SideMenu component - rendering from content component" />
+      <div> 
+        <Map note="Map is loading..." />
+        <SideMenu />
       </div>
     );
   }
 }
 
-export default Content;
+/*
+1. get locations data using component did mount life
+2. put that data in a state
+3.  define props for both map componet and sidebar
+4. Go to each child componet and 
+ utlize data
+5. work search feature
+ */
+ 

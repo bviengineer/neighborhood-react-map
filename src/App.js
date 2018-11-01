@@ -1,13 +1,16 @@
 import React from "react"; 
 import { Header } from "./components/Header.js"; //header bar
-import Content from "./components/Content.js"; //content container
+import { Content } from "./components/Content.js"; //content container
 import { Footer } from "./components/Footer.js"; //footer information
 import './App.css'; 
 
 const lat = 33.952879, //longtitude for map
-       lng = -83.992234; //latitude for map
+      lng = -83.992234; //latitude for map
 
-class App extends React.Component{
+
+//Rendering in Index.js
+export class App extends React.Component{
+  //Sets up script tag & corresponding parameters for map *****CITE SOURCE*********************************
   initJScript(srcURL){
     const initialScript = window.document.getElementsByTagName("script")[0]; 
     const newScript = window.document.createElement("script");
@@ -17,11 +20,11 @@ class App extends React.Component{
     initialScript.parentNode.insertBefore(newScript, initialScript)
   }
 
-  //Calls initJScript defined at bottom of file
+  //Calls initJScript & builds URL passed to function as a parameter used in making map API call
   displayMap = () => {
     this.initJScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyASu5vRNNzFx1JFJz7SVAIJJoRH9VJcST4&callback=initMap");
     
-    //binds this to the google map and requires adding window in front of a new google map constructor
+    //Binds initMap callback function to the window object 
     window.initMap = this.initMap;
   }
 
@@ -30,8 +33,8 @@ class App extends React.Component{
     const map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: lat, lng: lng},
       zoom: 8
-    }); //closing curly brace & bracket for new map variable
-    window.map = map;    
+    });
+    window.map = map; //? 
 
      //Creates an info window object that will appear on the map for each destination
     const infowindow = new window.google.maps.InfoWindow();
@@ -41,32 +44,28 @@ class App extends React.Component{
 
   render(){
     this.displayMap();
-    return (
+    return(
       <div>
-        {/* <Header title="HEADER: React Neighborhood Map - rendering from within App.js " /> */}
-        <div id="map"></div>
-        {/* <Content>   
-        </Content>
-        <Footer title="Footer component - reporting from within App.js" /> */}
+        <Header heading="React Neighborhood Map" />
+        <Content /> 
+        <Footer heading="Footer Content Here"/>
       </div> 
     );
   }
 }
 
-export default App;
-
 /* App Component contains:
-1. Title bar or heading
+1. Title bar or heading - DONE
 2. content 
-    Content container contains
-    a. sidebar componenet
-    b. map container
-    c. api request to get data from API & pass it to map
-    
-3. Apply info window & map markers to map
-4. Initialize map
+    Content Component contains
+    a. sidebar componenet - DONE
+    b. map component - DONE
 
-*/
+    c. api request to get data from API & pass it to map & sidebar     
+3. Apply info window & map markers to map
+
+4. Footer component - DONE
+5. Initialize map - DONE
 
 
 /*import React from 'react';
