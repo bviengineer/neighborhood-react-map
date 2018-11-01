@@ -68,67 +68,9 @@ export class App extends React.Component{
 5. Initialize map - DONE
 
 //=====================================================================
-/*import React from 'react';
-
-//import logo from './logo.svg';
-import { MyMap } from  "./components/Map.js";
-import { SideMenu } from "./components/SideMenu.js";
-
-
-class App extends React.Component{
-  constructor(props){
-    super(props);
-      this.state = { locations: [] }; //will hold locations fetched from fourSquare API
-  }//closing curly brace for Constructor function
-  
-   componentDidMount(){
-    this.displayMap();
-    this.fetchLocations(); 
-  }
-
-  componentDidUpdate(){
-    
-  }
+     
 
   
-
-  initJScript(srcURL){
-    const initialScript = window.document.getElementsByTagName("script")[0]; 
-    const newScript = window.document.createElement("script");
-    newScript.src = srcURL;
-    newScript.asyn = true;
-    newScript.defer = true;
-    initialScript.parentNode.insertBefore(newScript, initialScript)
-  }
-      
-
-  //Parameters for fetching library locations & API
-  fetchLocations = () => {
-    const searchParams = {
-      client_id: "0TL2LRJP0WLJYNYCVGZKZ4L1YRG50I5CLNP2XG0DUVSUEB2O",
-      client_secret: "4Q21F123T1T05GXLBP1TDEHPTPNLFBJKK341OGNFERSIGYDY",
-      query: "library",
-      near: "Lawrenceville, GA",
-      // limit: 50,  
-      v: "20181015"    
-    } //closing curly bracket for searchParams object
-
-    //Request to fourSquare API to retrieve data, using Axios
-    axios.get(locationsRequest + new URLSearchParams(searchParams))
-      .then( response => {
-        
-        console.log(response); //testing this is the returned data from the API fetch
-        // console.log(response.data.response.groups[0].items[0].venue.name); //for testing
-        
-        this.setState({ 
-          locations: response.data.response.groups[0].items
-        })         
-            //console.log("data inside of state",  this.state.locations);
-      }) //closing curly bracket & brace for function block and then, respectively
-      .catch(function(err){
-        console.log(err);
-      }) //closing curly bracket & brace for function block and catch, respectively
-    }
   
   render(){
     //this.displayMap();
