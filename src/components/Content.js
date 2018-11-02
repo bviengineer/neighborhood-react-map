@@ -38,38 +38,13 @@ export class Content extends React.Component {
         console.log(err);
       })
     }
-  
-  render(){
-    // console.log("content component render ", this.state.locations);
-    //let locations = this.state.locations; 
-    //console.log("locations var from content component", locations) //testing to see if returned location data was assigned to var
-    return (
-      <div> 
-        <Map note="Map is loading..." locations={this.state.locations}/>
-        <SideMenu locations={this.state.locations}/>
-      </div>
-    );
-  }
-}
 
-/*
-1. get locations data using component did mount life - DONE
-2. put that data in a state - DONE 
-3.  define props for both map componet and sidebar
-4. Go to each child componet and 
- utlize data
-5. work search feature
- */
+    componentDidUpdate(){
+      this.addMapMarkers(this.props.locations);
+      console.log("test from cdidupdate ", this.props.locations)
+    }
 
- /*
-//Map Component Class
-export class Map extends React.Component {
-
-  componentDidUpdate(){
-    // this.addMapMarkers(this.props.locations);
-    // console.log("test from cdidupdate ", this.props.locations)
-  }
-  //Will loop through the array of destinations returned from the fetch request   
+    //Will loop through the array of destinations returned from the fetch request   
   addMapMarkers = (locations) => {
     console.log("window.google ", window.google)
    if(window.google){
@@ -96,13 +71,28 @@ export class Map extends React.Component {
           window.infowindow.open(window.map, marker);
         });
       }); //closing curl brace & bracket for this.state.loctions.map
-    }    
-  }  
+    } //closing curly brace for if    
+  } //closing curly brace for addMapMarkers
+
   
-    render(){
-      this.addMapMarkers(this.props.locations);
-      console.log("test from cdidupdate ", this.props.locations)
-    return <div id="map"></div>
-  }   
+  render(){
+    // console.log("content component render ", this.state.locations);
+    //let locations = this.state.locations; 
+    //console.log("locations var from content component", locations) //testing to see if returned location data was assigned to var
+    return (
+      <div> 
+        <Map note="Map is loading..." locations={this.state.locations}/>
+        <SideMenu locations={this.state.locations}/>
+      </div>
+    );
+  }
 }
-*/
+
+/*
+1. get locations data using component did mount life - DONE
+2. put that data in a state - DONE 
+3.  define props for both map componet and sidebar
+4. Go to each child componet and 
+ utlize data
+5. work search feature
+ */
