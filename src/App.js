@@ -47,9 +47,16 @@ export class App extends React.Component{
     });
     window.map = map; //? 
 
-    //  //Creates an info window object that will appear on the map for each destination
-    // const infowindow = new window.google.maps.InfoWindow();
-    // window.infowindow = infowindow;        
+    let marker = new window.google.maps.Marker({
+      position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
+      map: window.map,
+      title: destination.venue.name
+    });
+
+
+     //Creates an info window object that will appear on the map for each destination
+    let infowindow = new window.google.maps.InfoWindow();
+    window.infowindow = infowindow;        
     
   } //closing curly brace for initMap()
 
