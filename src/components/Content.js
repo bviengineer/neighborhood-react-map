@@ -39,6 +39,8 @@ export class Content extends React.Component {
       })
     }
 
+    
+    //Will ensure component updated before adding map markers
     componentDidUpdate(){
       this.addMapMarkers();
       console.log("test from cDidUpdate ", this.state.locations)
@@ -47,24 +49,25 @@ export class Content extends React.Component {
     //Will loop through the array of destinations returned from the fetch request   
   addMapMarkers = () => {
    // console.log("window.google ", window.google)
-   console.log("inside map marrkers func", this.state.locations);
-   if(window.google){
-      console.log("from addMapMarkers ", window.map)
-      this.state.locations.map(destination => {
-            
-        //Infowindow variable that will display content on the map marker for a given destination
-        const infoWindowData = `<strong>${destination.venue.name}</strong> <br>
-          ${destination.venue.location.address} <br>
-          ${destination.venue.location.formattedAddress[1]} <br>
-          ${destination.venue.location.country}`
-        ;
-      
-          //Creats a map marker for each destnation in the appray and & adds them to the map
-        let marker = new window.google.maps.Marker({
-          position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
-          map: window.map,
-          title: destination.venue.name
-        });
+    console.log("inside map marrkers func", this.state.locations);
+    
+   // if(window.google){
+       // console.log("from addMapMarkers ", window.map)
+        this.state.locations.map(destination => {
+              
+          //Infowindow variable that will display content on the map marker for a given destination
+          const infoWindowData = `<strong>${destination.venue.name}</strong> <br>
+            ${destination.venue.location.address} <br>
+            ${destination.venue.location.formattedAddress[1]} <br>
+            ${destination.venue.location.country}`
+          ;
+        
+            //Creats a map marker for each destnation in the appray and & adds them to the map
+          let marker = new window.google.maps.Marker({
+            position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
+            map: window.map,
+            title: destination.venue.name
+          });
         
          //Event listener for each map marker that will pop up an infowindow
          marker.addListener('click', function(){
@@ -72,7 +75,7 @@ export class Content extends React.Component {
           window.infowindow.open(window.map, marker);
         });
       }); //closing curl brace & bracket for this.state.loctions.map
-    } //closing curly brace for if    
+    //} //closing curly brace for if    
   } //closing curly brace for addMapMarkers
 
   
