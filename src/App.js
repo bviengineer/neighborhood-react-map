@@ -65,14 +65,13 @@ export class App extends React.Component{
   }
 }
 
-/* App Component contains:
+/* App Component Renders:
 1. Title bar or heading - DONE
-2. content 
-    Content Component contains
+2. Content componenet
+    Renders:
     a. sidebar componenet - DONE
     b. map component - DONE
-
-    c. api request to get data from API & pass it to map & sidebar     
+    c. api request to get data from API & pass it to map & sidebar - DONE
 3. Apply info window & map markers to map
 
 4. Footer component - DONE
