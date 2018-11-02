@@ -40,16 +40,17 @@ export class Content extends React.Component {
     }
 
     componentDidUpdate(){
-      this.addMapMarkers(this.props.locations);
-      console.log("test from cdidupdate ", this.props.locations)
+      this.addMapMarkers();
+      console.log("test from cDidUpdate ", this.state.locations)
     }
 
     //Will loop through the array of destinations returned from the fetch request   
-  addMapMarkers = (locations) => {
-    console.log("window.google ", window.google)
+  addMapMarkers = () => {
+   // console.log("window.google ", window.google)
+   console.log("inside map marrkers func", this.state.locations);
    if(window.google){
       console.log("from addMapMarkers ", window.map)
-      locations.map(destination => {
+      this.state.locations.map(destination => {
             
         //Infowindow variable that will display content on the map marker for a given destination
         const infoWindowData = `<strong>${destination.venue.name}</strong> <br>
