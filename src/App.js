@@ -47,9 +47,9 @@ export class App extends React.Component{
     });
     window.map = map; //? 
 
-     //Creates an info window object that will appear on the map for each destination
-    const infowindow = new window.google.maps.InfoWindow();
-    window.infowindow = infowindow;        
+    //  //Creates an info window object that will appear on the map for each destination
+    // const infowindow = new window.google.maps.InfoWindow();
+    // window.infowindow = infowindow;        
     
   } //closing curly brace for initMap()
 

@@ -37,45 +37,46 @@ export class Content extends React.Component {
       .catch(function(err){
         console.log(err);
       })
+
+      //this.addMapMarkers();
     }
 
     
     //Will ensure component updated before adding map markers
     componentDidUpdate(){
       this.addMapMarkers();
-      console.log("test from cDidUpdate ", this.state.locations)
+      //console.log("test from cDidUpdate ", this.state.locations) //testing for data
     }
 
     //Will loop through the array of destinations returned from the fetch request   
   addMapMarkers = () => {
-   // console.log("window.google ", window.google)
-    console.log("inside map marrkers func", this.state.locations);
+    console.log("inside addMapMarkers func", this.state.locations); //testing for data
+  
+    this.state.locations.map(destination => {              
+      //Infowindow variable that will display content on the map marker for a given destination
+      const infoWindowData = `<strong>${destination.venue.name}</strong> <br>
+        ${destination.venue.location.address} <br>
+        ${destination.venue.location.formattedAddress[1]} <br>
+        ${destination.venue.location.country}`
+      ;
     
-   // if(window.google){
-       // console.log("from addMapMarkers ", window.map)
-        this.state.locations.map(destination => {
-              
-          //Infowindow variable that will display content on the map marker for a given destination
-          const infoWindowData = `<strong>${destination.venue.name}</strong> <br>
-            ${destination.venue.location.address} <br>
-            ${destination.venue.location.formattedAddress[1]} <br>
-            ${destination.venue.location.country}`
-          ;
-        
-            //Creats a map marker for each destnation in the appray and & adds them to the map
-          let marker = new window.google.maps.Marker({
-            position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
-            map: window.map,
-            title: destination.venue.name
-          });
-        
-         //Event listener for each map marker that will pop up an infowindow
-         marker.addListener('click', function(){
-          window.infowindow.setContent(infoWindowData);
-          window.infowindow.open(window.map, marker);
-        });
-      }); //closing curl brace & bracket for this.state.loctions.map
-    //} //closing curly brace for if    
+        //Creats a map marker for each destnation in the array and & adds them to the map
+      let marker = new window.google.maps.Marker({
+        position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
+        map: window.map,
+        title: destination.venue.name
+      });
+
+       //Creates an info window object that will appear on the map for each destination
+        let infowindow = new window.google.maps.InfoWindow();
+        window.infowindow = infowindow;    
+    
+      //Event listener for each map marker that will pop up an infowindow
+        marker.addListener('click', function(){
+        window.infowindow.setContent(infoWindowData);
+        window.infowindow.open(window.map, marker);
+      });
+    }); //closing curly brace & bracket for this.state.loctions.map  
   } //closing curly brace for addMapMarkers
 
   

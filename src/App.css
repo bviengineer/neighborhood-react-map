@@ -4,6 +4,7 @@
 
 #map {
   height: 100vh;
+  /* max-width: 75%; */
   background-color: rgba(190, 213, 241, 0.3);
 }
 
