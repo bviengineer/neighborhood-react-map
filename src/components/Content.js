@@ -2,7 +2,7 @@ import React from "react";
 import { Map } from "./Map.js"; //to hold map
 import { SideMenu } from "./SideMenu.js"; //display list of returned locations
 import axios from "axios"; //will handle request to API
-//import FourSqureAPI from "../api/index.js"; GETTING DATA whether or not this is imported 
+//import FourSqureAPI from "../api/index.js"; //GETTING DATA whether or not this is imported 
 
 
 //VARIABLES
@@ -12,10 +12,9 @@ const searchParams = {
   client_secret: "4Q21F123T1T05GXLBP1TDEHPTPNLFBJKK341OGNFERSIGYDY",
   query: "library",
   near: "Lawrenceville, GA",
-  // limit: 50,  
+  // limit: 5,  
   v: "20181015"    
 };
-
 
 //Rendering in App.js
 export class Content extends React.Component {
@@ -26,6 +25,7 @@ export class Content extends React.Component {
 
   //Method will call API after map renders
   componentWillMount(){
+    //Will get data from fourSquare API
     axios.get(locationsRequest + new URLSearchParams(searchParams))
       .then( response => {        
         console.log(response); //testing; returned data from the API fetch 
@@ -37,22 +37,11 @@ export class Content extends React.Component {
       .catch(function(err){
         console.log(err);
       })
-
-      //this.addMapMarkers();
     }
-
     
-    //Will ensure component updated before adding map markers
-    componentDidMount(){
-      // if(window.google){
-      //   this.addMapMarkers();
-      // }
-      //console.log("test from cDidUpdate ", this.state.locations) //testing for data
-    }
-
-    //Will loop through the array of destinations returned from the fetch request   
+  //Will loop through the array of destinations returned from the fetch request   
   addMapMarkers = () => {
-    console.log("inside addMapMarkers func", this.state.locations); //testing for data
+    // console.log("inside addMapMarkers func", this.state.locations); //testing for data
   
     this.state.locations.map(destination => {              
       //Infowindow variable that will display content on the map marker for a given destination
@@ -61,22 +50,20 @@ export class Content extends React.Component {
         ${destination.venue.location.formattedAddress[1]} <br>
         ${destination.venue.location.country}`
       ;
-    
-      //try printing maps, it cannot find the google map
       
-        //Creats a map marker for each destnation in the array and & adds them to the map
-      let marker = new window.google.maps.Marker({
-        position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
-        map: window.map,
-        title: destination.venue.name
-      });
+        /* Creats a map marker for each destnation in the array and & adds them to the map and after changing let to var map began loading consistently*/
+    //  let marker = new window.google.maps.Marker({
+    //     position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
+    //     map: window.map,
+    //     title: destination.venue.name
+    //   });
   
     
-      //Event listener for each map marker that will pop up an infowindow
-        marker.addListener('click', function(){
-        window.infowindow.setContent(infoWindowData);
-        window.infowindow.open(window.map, marker);
-      });
+    //   //Event listener for each map marker that will pop up an infowindow
+    //     marker.addListener('click', function(){
+    //     window.infowindow.setContent(infoWindowData);
+    //     window.infowindow.open(window.map, marker);
+    //   });
     }); //closing curly brace & bracket for this.state.loctions.map  
   } //closing curly brace for addMapMarkers
 
@@ -88,8 +75,8 @@ export class Content extends React.Component {
     this.addMapMarkers();
     return (
       <div> 
-        <Map note="Map is loading..." locations={this.state.locations}/>
         <SideMenu locations={this.state.locations}/>
+        <Map note="Map is loading..." locations={this.state.locations}/>
       </div>
     );
   }
@@ -102,4 +89,9 @@ export class Content extends React.Component {
 4. Go to each child componet and 
  utlize data
 5. work search feature
+6. Filter locations based on user search query
+11. Animate marker
+7. servide worker
+8. aria
+10. responsiveness 
  */

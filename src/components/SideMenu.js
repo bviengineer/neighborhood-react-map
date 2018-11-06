@@ -9,12 +9,13 @@ export class SideMenu extends React.Component {
     console.log("console log inside SideMenu component render ", this.props.locations); //verifying props is being passed to SideMenu from content
     return (
       <div className="side-bar">
-        <Search userInput="User search term here"/>
+        <h4>Venu Results</h4>
+        <Search userInput="search venues"/>
         <div>
           <ol>
           {this.props.locations.map(destination => (
             <li>
-              {destination.venue.name}
+              <strong>{destination.venue.name}</strong>
               <br/>
               {destination.venue.location.formattedAddress}
               <hr/>
@@ -27,9 +28,3 @@ export class SideMenu extends React.Component {
     );
   }
 }
-
-/*
-1. render returned results of search and display them here in the side bar
-
-
-*/

@@ -4,7 +4,7 @@ import React from "react";
 //Rendering in Content.js
 export class Map extends React.Component{  
   render(){
-    console.log("console log inside map component render ", this.props.locations); //verifying props is being passed to map from content
+    // console.log("console log inside map component render ", this.props.locations); //verifying props is being passed to map from content
     return (
       <div id="map" className="map-loading">{/* ?how's is connected to getElementById from map listed in App.js */}
           <h1>{this.props.note}</h1> {/* Prints a message to the screen that the map is loading */}
