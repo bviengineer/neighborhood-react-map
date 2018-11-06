@@ -43,8 +43,10 @@ export class Content extends React.Component {
 
     
     //Will ensure component updated before adding map markers
-    componentDidUpdate(){
-      this.addMapMarkers();
+    componentDidMount(){
+      // if(window.google){
+      //   this.addMapMarkers();
+      // }
       //console.log("test from cDidUpdate ", this.state.locations) //testing for data
     }
 
@@ -83,6 +85,7 @@ export class Content extends React.Component {
     // console.log("content component render ", this.state.locations);
     //let locations = this.state.locations; 
     //console.log("locations var from content component", locations) //testing to see if returned location data was assigned to var
+    this.addMapMarkers();
     return (
       <div> 
         <Map note="Map is loading..." locations={this.state.locations}/>
