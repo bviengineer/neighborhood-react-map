@@ -43,15 +43,15 @@ export class App extends React.Component{
   initMap = () => {
     const map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: lat, lng: lng},
-      zoom: 12
+      zoom: 8
     });
     window.map = map; //? 
 
-    let marker = new window.google.maps.Marker({
-      position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
-      map: window.map,
-      title: destination.venue.name
-    });
+    // let marker = new window.google.maps.Marker({
+    //   position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
+    //   map: window.map,
+    //   title: destination.venue.name
+    // });
 
 
      //Creates an info window object that will appear on the map for each destination
