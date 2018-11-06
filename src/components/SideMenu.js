@@ -1,5 +1,6 @@
 import React from "react";
-import { Search } from "./Search.js"
+import { Search } from "./Search.js";
+import "../App.css";
 
 
 //Rendering in Content.js
