@@ -43,7 +43,7 @@ export class App extends React.Component{
   initMap = () => {
     const map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: lat, lng: lng},
-      zoom: 8
+      zoom: 10
     });
     window.map = map; //? 
 
