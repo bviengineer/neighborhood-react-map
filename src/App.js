@@ -51,13 +51,6 @@ export class App extends React.Component{
     });
     window.map = map; //? 
 
-    // let marker = new window.google.maps.Marker({
-    //   position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
-    //   map: window.map,
-    //   title: destination.venue.name
-    // });
-
-
      //Creates an info window object that will appear on the map for each destination
     let infowindow = new window.google.maps.InfoWindow();
     window.infowindow = infowindow;        
@@ -86,5 +79,10 @@ export class App extends React.Component{
 3. Apply info window & map markers to map
 
 4. Footer component - DONE
-5. Initialize map - DONE
+5. Initialize map -  DONE
+
+observations:
+-map loads sometimes and sometimes doesn't
+
 */
+
