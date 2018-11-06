@@ -4,12 +4,16 @@ import { Content } from "./components/Content.js"; //content container
 import { Footer } from "./components/Footer.js"; //footer information
 import './App.css'; 
 
-const lat = 33.952879, //longtitude for map
-      lng = -83.992234; //latitude for map
-
 
 //Rendering in Index.js
 export class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      lat: 33.952879,
+      lng: -83.992234
+    }
+  }
   /* Sources for initJScript function:
     1. https://www.klaasnotfound.com/2016/11/06/making-google-maps-work-with-react/
     2. https://www.youtube.com/watch?v=W5LhLZqj76s&index=2&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1
@@ -42,7 +46,7 @@ export class App extends React.Component{
   //Google Map setup with initial lat lng parameters 
   initMap = () => {
     const map = new window.google.maps.Map(document.getElementById('map'), {
-      center: {lat: lat, lng: lng},
+      center: {lat: this.state.lat, lng: this.state.lng},
       zoom: 10
     });
     window.map = map; //? 
