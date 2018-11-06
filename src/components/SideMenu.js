@@ -15,6 +15,9 @@ export class SideMenu extends React.Component {
           {this.props.locations.map(destination => (
             <li>
               {destination.venue.name}
+              <br/>
+              {destination.venue.location.formattedAddress}
+              <hr/>
             </li>
           ))
           }
