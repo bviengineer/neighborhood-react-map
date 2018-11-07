@@ -8,7 +8,7 @@ export class SideMenu extends React.Component {
   constructor(props){ 
     super(props);
     this.state = {
-      userQuery: this.props.locations
+      userQuery: ""
     }
   }
 
@@ -18,22 +18,25 @@ export class SideMenu extends React.Component {
     console.log(e)
   }
 
-  componentDidMount(){
-    this.filterSearch();
-  }
-
   //Filter user search results
-  filterSearch = (query) => {
-    this.setState({ userQuery: query });
+  filterSearch = () => {
+    this.setState({ userQuery: this.handleSearch });
+    console.log("printing from filter search");
   }
   
   render(){
     console.log("SideMenu component render ", this.props.locations); //verifying props is being passed to SideMenu from content
-    console.log("STATE inside SideMenu", this.props.userQuery);
     return (
       <div className="side-bar">
         <h4>Venu Results</h4>
-        <Search userInput="search venues" onKeyPress={this.handleSearch}/>  {/* Search Component */}
+
+        {/* Search Component */}
+        <Search 
+          userInput="search venues" 
+          onChange={this.handleSearch} 
+          onKeyPress={this.filterSearch}
+        />  
+        
         <div>
           <ol>
           {this.props.locations.map(destination => (
