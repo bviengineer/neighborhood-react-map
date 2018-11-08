@@ -47,7 +47,6 @@ export class SideMenu extends React.Component {
     //console.log("SideMenu component render after setting state ", this.state.userQuery); //verifying props is being passed to SideMenu from content
     return (
       <div className="side-bar">
-        <button>X</button>
         <h4>Venu Results</h4>
         
        <input 

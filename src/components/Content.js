@@ -71,7 +71,7 @@ export class Content extends React.Component {
   
   //filter function 
   filterSearch = () => {
-    this.state.locations.filter(location => console.log(location.length));
+    this.state.locations.filter(location => console.log("filter feature", location.length));
   }
 
   render(){
