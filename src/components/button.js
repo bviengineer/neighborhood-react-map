@@ -5,7 +5,7 @@ import React from "react";
 export class Button extends React.Component{
   render(){
     return(
-      <button>X</button>
+      <button tabIndex="0">X</button>
     )
   }
 }
