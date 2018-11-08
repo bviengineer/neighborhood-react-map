@@ -11,16 +11,16 @@ export class SideMenu extends React.Component {
       userQuery: ""
     }
   }
-
  
   //Gets keywords typed by user
   handleSearch = (e) => {
-    console.log(e.target.value)
-    this.setState({userQuery: this.props.locations});
+    let queryString = e.target.value;
+    console.log("queryString data ", queryString)
+    // this.setState({userQuery: this.props.locations});
     
-    if(this.state.userQuery != ""){
-      this.props.filterSearch();
-    }
+    // if(this.state.userQuery != ""){
+    //   this.props.filterSearch();
+    // }
   }
 
  //const popular = musicData.filter(artist => artist.sales > 1000000).map(artist => {return artist.artist + " is a great performer"});
