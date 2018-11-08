@@ -37,7 +37,7 @@ export class Content extends React.Component {
       .catch(function(err){
         console.log(err);
       })
-    }
+  }
     
   //Will loop through the array of destinations returned from the fetch request   
   addMapMarkers = () => {
@@ -68,6 +68,11 @@ export class Content extends React.Component {
   } //closing curly brace for addMapMarkers
 
   
+  //filter function 
+  filterSearch = () => {
+    this.state.locations.filter(location => console.log(location.length));
+  }
+
   render(){
     // console.log("content component render ", this.state.locations);
     //let locations = this.state.locations; 
@@ -75,7 +80,7 @@ export class Content extends React.Component {
     this.addMapMarkers();
     return (
       <div> 
-        <SideMenu locations={this.state.locations}/>
+        <SideMenu locations={this.state.locations} filterSearch={this.filterSearch}/>
         <Map note="Map is loading..." locations={this.state.locations}/>
       </div>
     );
@@ -89,9 +94,11 @@ export class Content extends React.Component {
 4. Go to each child componet and 
  utlize data
 5. work search feature
-6. Filter locations based on user search query
-11. Animate marker
-7. servide worker
+    a. get user search term - DONE
+    b. pass user query to state
+    c. Filter locations based on user search query
+6. Animate marker
+7. service worker
 8. aria
-10. responsiveness 
+9. responsiveness 
  */
