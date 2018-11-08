@@ -40,10 +40,9 @@ export class SideMenu extends React.Component {
         <div>
           <ol>
           {this.props.locations.map(destination => (
-            <li key={destination.venue.categories[0].id}>
+            <li key={destination.venue.name}>
               <strong>{destination.venue.name}</strong>
               <br/>
-              {destination.venue.categories[0].id}<br/>
               {destination.venue.location.formattedAddress[0]}<br/>
               {destination.venue.location.formattedAddress[1]}<br/>
               {destination.venue.location.formattedAddress[2]}
