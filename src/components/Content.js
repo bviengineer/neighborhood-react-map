@@ -46,7 +46,7 @@ export class Content extends React.Component {
   
     this.state.locations.map(destination => {              
       //Infowindow variable that will display content on the map marker for a given destination
-      const infoWindowData = `<span role="link" tabindex="0"><strong>${destination.venue.name}</strong></span> <br>
+      const infoWindowData = `<span role="link" tabIndex="0"><strong>${destination.venue.name}</strong></span> <br>
         ${destination.venue.location.address}<<br>
         ${destination.venue.location.formattedAddress[1]}<br>
         ${destination.venue.location.country}`
