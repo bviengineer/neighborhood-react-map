@@ -1,6 +1,7 @@
 import React from "react";
 import { Map } from "./Map.js"; //to hold map
 import { SideMenu } from "./SideMenu.js"; //display list of returned locations
+import { Button } from "./button.js";
 import axios from "axios"; //will handle request to API
 //import FourSqureAPI from "../api/index.js"; //GETTING DATA whether or not this is imported 
 
@@ -80,6 +81,7 @@ export class Content extends React.Component {
     this.addMapMarkers();
     return (
       <div> 
+        <Button hideMenu={ `$("button").click(function = () => { $(".side-bar").toggle() })`} />
         <SideMenu locations={this.state.locations} filterSearch={this.filterSearch}/>
         <Map note="Map is loading..." locations={this.state.locations}/>
       </div>
