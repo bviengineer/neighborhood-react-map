@@ -8,31 +8,29 @@ export class SideMenu extends React.Component {
   constructor(props){ 
     super(props);
     this.state = {
-      userQuery: []
+      userQuery: ""
     }
   }
 
  
   //Gets keywords typed by user
   handleSearch = (e) => {
-    console.log(e)
+    console.log(e.target.value)
     this.setState({userQuery: this.props.locations});
-    //set the state to e.target.value and then filter props based on state?
-    this.state.userQuery.filter(this.onChange);
+    
+    if(this.state.userQuery != ""){
+      this.props.filterSearch();
+    }
   }
 
-  //Event handler
-  onChange = (e) => {
-    this.handleSearch(e.target.value)
-  }
  //const popular = musicData.filter(artist => artist.sales > 1000000).map(artist => {return artist.artist + " is a great performer"});
-
-  //NOTE TO SELF: filter the the state passing in the userQuery as the parameter
-  //Filter user search results
-  // filterSearch = () => {
-  //   this.state.userQuery.filter(venue => {
-  //     this.handleSearch(e.target.value)
-  //   }) 
+/*   
+  You’ll want to (Doug FEND Coach):
+  1. write your filter function in the Content.js file and - DONE
+  2. pass that on the props to your SideMenu component. - DONE
+  3. Then call your this.props.filter function when the user changes the query, 
+  4. update the state with the filtered list of venues in Content, and everything will update from there.    
+*/
   
   render(){
     console.log("SideMenu component render after setting state ", this.state.userQuery); //verifying props is being passed to SideMenu from content
@@ -43,7 +41,7 @@ export class SideMenu extends React.Component {
        <input 
             className="search-bar" 
             placeholder={this.props.userInput} 
-            onChange={this.onChange}
+            onChange={this.handleSearch}
           />
         {/* Search Component */}
         {/* <Search 
