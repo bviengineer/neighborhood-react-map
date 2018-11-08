@@ -75,6 +75,19 @@ ol li {
   text-align: left;
 }
 
+button {
+  float: right;
+  background-color: lightskyblue;
+  color: crimson;
+  font-size: 1.5em;
+  width: 50px;
+}
+
+button:hover {
+  background-color: red;
+  color: white;
+}
+
 /* .venu-list {
   max-width: 50%;
 } */

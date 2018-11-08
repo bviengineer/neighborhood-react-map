@@ -22,6 +22,7 @@ export class SideMenu extends React.Component {
       this.setState({ 
         userQuery: queryString
       })
+      this.props.filterSearch();
       //testing query and state before query change
       console.log("state AFTER setState ", this.state.userQuery)
     } else if(this.state.userQuery != "" && this.state.userQuery != queryString){
@@ -46,8 +47,9 @@ export class SideMenu extends React.Component {
     //console.log("SideMenu component render after setting state ", this.state.userQuery); //verifying props is being passed to SideMenu from content
     return (
       <div className="side-bar">
+        <button>X</button>
         <h4>Venu Results</h4>
-
+        
        <input 
             className="search-bar" 
             placeholder={this.props.userInput} 
