@@ -76,15 +76,15 @@ ol li {
 }
 
 button {
-  float: right;
-  background-color: lightskyblue;
+  float: left;
+  background-color: rgba(10,50,100,0.1);
   color: crimson;
   font-size: 1.5em;
   width: 50px;
 }
 
 button:hover {
-  background-color: red;
+  background-color: crimson;
   color: white;
 }
 
