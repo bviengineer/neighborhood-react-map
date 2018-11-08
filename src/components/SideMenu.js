@@ -62,9 +62,9 @@ export class SideMenu extends React.Component {
         />   */}
         
         <div>
-          <ol>
+          <ol role="list" tabindex="0">
           {this.props.locations.map(destination => (
-            <li key={destination.venue.name}>
+            <li role="listitem" tabindex="0" key={destination.venue.name}>
               <strong>{destination.venue.name}</strong>
               <br/>
               {destination.venue.location.formattedAddress[0]}<br/>
