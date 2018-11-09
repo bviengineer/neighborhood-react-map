@@ -100,7 +100,7 @@ export class Content extends React.Component {
     b. pass user query to state
     c. Filter locations based on user search query
 6. Animate marker
-7. service worker
-8. aria
+7. service worker - DONE
+8. aria - DONE
 9. responsiveness 
  */
