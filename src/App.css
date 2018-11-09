@@ -10,7 +10,7 @@ html, body {
 /*=============Content Area=========*/
 .content {
   display: grid;
-  grid-template-columns: (auto auto);
+  grid-template-columns: 2fr 7fr;
   /* grid-template-rows: auto; */
 }
 
@@ -57,7 +57,7 @@ h4 {
 }
 
 .side-bar {
-  max-width: 23%;
+  /* max-width: 23%; */
   /* max-height: 50%; */
   float: left; 
   padding: 5px;
