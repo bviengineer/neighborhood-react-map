@@ -21,7 +21,10 @@ const searchParams = {
 export class Content extends React.Component {
   constructor(props){
     super(props);
-    this.state = { locations: [] }
+    this.state = { 
+      locations: [], 
+      userQuery: ""
+    }
   }
 
   //Method will call API after map renders
@@ -69,10 +72,28 @@ export class Content extends React.Component {
   } //closing curly brace for addMapMarkers
 
   
-  //filter function 
-  filterSearch = () => {
-    this.state.locations.filter(location => console.log("filter feature", location.length));
+  //filterSearch takes the user's search term and sets the state of the userQuery object
+  filterSearch = (search) => {
+    this.setState({ 
+      userQuery: search
+    });
+    this.handleSearch(search);
   }
+
+  handleSearch = (search) => {
+    if(search !== ""){
+      this.state.locations.filter(location => {
+        console.log('handleSearch method in Content', location)
+        this.setState({
+          locations:  location
+        })
+      })
+    } else {
+    this.setState({
+      locations: this.state.locations
+    })
+  }
+}
 
   render(){
     // console.log("content component render ", this.state.locations);

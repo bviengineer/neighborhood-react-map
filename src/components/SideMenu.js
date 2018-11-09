@@ -5,36 +5,7 @@ import "../App.css";
 
 //Rendering in Content.js
 export class SideMenu extends React.Component { 
-  constructor(props){ 
-    super(props);
-    this.state = {
-      userQuery: ""
-    }
-  }
- 
-  //Gets keywords typed by user
-  handleSearch = (e) => {
-    let queryString = e.target.value;
-
-    console.log("state BEFORE setState ", this.state.userQuery)
-    
-    if(this.state.userQuery === ""){
-      this.setState({ 
-        userQuery: queryString
-      })
-      this.props.filterSearch();
-      //testing query and state before query change
-      console.log("state AFTER setState ", this.state.userQuery)
-    } else if(this.state.userQuery !== "" && this.state.userQuery !== queryString){
-      this.setState({
-        userQuery: queryString
-      })
-      console.log("new query ", this.state.userQuery)
-    }
-
-  }
-
- //const popular = musicData.filter(artist => artist.sales > 1000000).map(artist => {return artist.artist + " is a great performer"});
+  //const popular = musicData.filter(artist => artist.sales > 1000000).map(artist => {return artist.artist + " is a great performer"});
 /*   
   You’ll want to (Doug FEND Coach):
   1. write your filter function in the Content.js file and - DONE
@@ -52,8 +23,8 @@ export class SideMenu extends React.Component {
        <input 
             tabIndex="0"
             className="search-bar" 
-            placeholder={this.props.userInput} 
-            onChange={this.handleSearch}
+            placeholder={"search venues"} 
+            onChange={(e) => this.props.filterSearch(e.target.value)}
           />
         {/* Search Component */}
         {/* <Search 
