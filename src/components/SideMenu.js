@@ -50,6 +50,8 @@ export class SideMenu extends React.Component {
         <h4>Venu Results</h4>
         
        <input 
+            role="input"
+            tabIndex="0"
             className="search-bar" 
             placeholder={this.props.userInput} 
             onChange={this.handleSearch}
