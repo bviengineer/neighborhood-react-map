@@ -82,7 +82,16 @@ export class App extends React.Component{
 5. Initialize map -  DONE
 
 observations:
--map loads sometimes and sometimes doesn't
+-map loads sometimes and sometimes doesn't due to map markers issue 
 
+TO DO as of 8:22pm EST on 11/08/18
+-aria - DONE
+-map markers - 1/2 DONE
+-filter feature -1/2 DONE
+-service worker - DONE
+-README - DONE
+-animate map marker
+-reponsive design
+-error handling
 */
 
