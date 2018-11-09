@@ -82,8 +82,10 @@ export class Content extends React.Component {
     return (
       <div> 
         <Button hideMenu={ `$("button").click(function = () => { $(".side-bar").toggle() })`} />
-        <SideMenu locations={this.state.locations} filterSearch={this.filterSearch}/>
-        <Map note="Map is loading..." locations={this.state.locations}/>
+        <div className="content">
+          <SideMenu locations={this.state.locations} filterSearch={this.filterSearch}/>
+          <Map note="Map is loading..." locations={this.state.locations}/>
+        </div>
       </div>
     );
   }
