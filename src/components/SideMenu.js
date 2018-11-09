@@ -18,14 +18,14 @@ export class SideMenu extends React.Component {
 
     console.log("state BEFORE setState ", this.state.userQuery)
     
-    if(this.state.userQuery == ""){
+    if(this.state.userQuery === ""){
       this.setState({ 
         userQuery: queryString
       })
       this.props.filterSearch();
       //testing query and state before query change
       console.log("state AFTER setState ", this.state.userQuery)
-    } else if(this.state.userQuery != "" && this.state.userQuery != queryString){
+    } else if(this.state.userQuery !== "" && this.state.userQuery !== queryString){
       this.setState({
         userQuery: queryString
       })
@@ -50,7 +50,6 @@ export class SideMenu extends React.Component {
         <h4>Venu Results</h4>
         
        <input 
-            role="input"
             tabIndex="0"
             className="search-bar" 
             placeholder={this.props.userInput} 
@@ -64,9 +63,9 @@ export class SideMenu extends React.Component {
         />   */}
         
         <div>
-          <ol role="list" tabIndex="0">
+          <ol tabIndex="0">
           {this.props.locations.map(destination => (
-            <li role="listitem" tabIndex="0" key={destination.venue.name}>
+            <li tabIndex="0" key={destination.venue.name}>
               <strong>{destination.venue.name}</strong>
               <br/>
               {destination.venue.location.formattedAddress[0]}<br/>
