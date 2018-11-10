@@ -11,7 +11,7 @@ html, body {
 .content {
   display: grid;
   grid-template-columns: 2fr 7fr;
-  grid-template-rows: 40px; 
+  /* grid-template-rows: auto; */
 }
 
 /*===============Map================*/
@@ -40,12 +40,12 @@ h1, .site-header {
 
 /*===============Search Bar================*/
 .search-bar{
-  width: 95%;
+  width: 20%;
   height: 100%;
   font-size: 1.5em;
   padding: 5px;
   margin: 0 5px 10px 0;
-  float: left;
+  /* float: left; */
 }
 
 h4 {

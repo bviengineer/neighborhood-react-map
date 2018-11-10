@@ -23,18 +23,20 @@ export class Content extends React.Component {
     super(props);
     this.state = { 
       locations: [], 
+      fetchedLocations: [],
       userQuery: ""
     }
   }
 
   //Method will call API after map renders
-  componentWillMount(){
+  componentDidMount(){
     //Will get data from fourSquare API
     axios.get(locationsRequest + new URLSearchParams(searchParams))
       .then( response => {        
         console.log(response); //testing; returned data from the API fetch 
         this.setState({
-          locations: response.data.response.groups[0].items
+          locations: response.data.response.groups[0].items,
+          fetchedLocations: response.data.response.groups[0].items
         })         
             //console.log("data after setting state",  this.state.locations); //testing purposes
       })
@@ -45,8 +47,8 @@ export class Content extends React.Component {
     
   //Will loop through the array of destinations returned from the fetch request   
   addMapMarkers = () => {
-    // console.log("inside addMapMarkers func", this.state.locations); //testing for data
-  
+    //console.log("inside addMapMarkers func", window.google); //testing for data
+    if (window.google){   
     this.state.locations.map(destination => {              
       //Infowindow variable that will display content on the map marker for a given destination
       const infoWindowData = `<span role="link" tabIndex="0"><strong>${destination.venue.name}</strong></span> <br>
@@ -56,19 +58,20 @@ export class Content extends React.Component {
       ;
       
         /* Creats a map marker for each destnation in the array and & adds them to the map and after changing let to var map began loading consistently*/
-    //  let marker = new window.google.maps.Marker({
-    //     position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
-    //     map: window.map,
-    //     title: destination.venue.name
-    //   });
+     let marker = new window.google.maps.Marker({
+        position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
+        map: window.map,
+        title: destination.venue.name
+      });
   
     
-    //   //Event listener for each map marker that will pop up an infowindow
-    //     marker.addListener('click', function(){
-    //     window.infowindow.setContent(infoWindowData);
-    //     window.infowindow.open(window.map, marker);
-    //   });
+      //Event listener for each map marker that will pop up an infowindow
+        marker.addListener('click', function(){
+        window.infowindow.setContent(infoWindowData);
+        window.infowindow.open(window.map, marker);
+      });
     }); //closing curly brace & bracket for this.state.loctions.map  
+    }
   } //closing curly brace for addMapMarkers
 
   
@@ -81,28 +84,40 @@ export class Content extends React.Component {
   }
 
   handleSearch = (search) => {
+
     if(search !== ""){
-      this.state.locations.filter(location => {
-        console.log('handleSearch method in Content', location)
-        this.setState({
-          locations:  location
-        })
-      })
-  //   } else {
-  //   this.setState({
-  //     locations: this.state.locations
-  //   })
-  // }
+      // set location to filtered locations
+    this.setState({locations: this.filterLocations(this.state.locations, search) })
+    //   this.state.locations.filter(location => {
+    //     console.log('handleSearch method in Content', search, location)
+    //     this.setState({ locations: [] }); //APP FAILS after keypress and WHEN state is set to location
+    //  }); //closing for filter
+    } else {
+      // set locations to original 
+    this.setState({
+      locations: this.state.fetchedLocations
+    })
   }
-}
+  }
+
+  filterLocations(locations, query) {
+    return locations.filter(location => location.venue.name.toLowerCase().includes(query.toLowerCase()))
+  }
 
   render(){
     // console.log("content component render ", this.state.locations);
     //let locations = this.state.locations; 
     //console.log("locations var from content component", locations) //testing to see if returned location data was assigned to var
+    console.log("COUNT", window.google);
     this.addMapMarkers();
     return (
-      <div> 
+      <div>  
+        <input 
+          tabIndex="0"
+          className="search-bar" 
+          placeholder={"search venues"} 
+          onChange={(e) => this.filterSearch(e.target.value)}
+        />
         <Button hideMenu={ `$("button").click(function = () => { $(".side-bar").toggle() })`} />
         <div className="content">
           <SideMenu locations={this.state.locations} filterSearch={this.filterSearch}/>

@@ -20,12 +20,12 @@ export class SideMenu extends React.Component {
       <div className="side-bar">
         <h4>Venu Results</h4>
         
-       <input 
-            tabIndex="0"
-            className="search-bar" 
-            placeholder={"search venues"} 
-            onChange={(e) => this.props.filterSearch(e.target.value)}
-          />
+       {/* <input 
+          tabIndex="0"
+          className="search-bar" 
+          placeholder={"search venues"} 
+          onChange={(e) => this.props.filterSearch(e.target.value)}
+        /> */}
         {/* Search Component */}
         {/* <Search 
           userInput="search venues" 
