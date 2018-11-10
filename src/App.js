@@ -67,7 +67,7 @@ export class App extends React.Component{
       <div>
         <Header heading="Neighborhood Libraries" />
         <Content /> 
-        <Footer heading="Footer Content Here"/>
+        <Footer />
       </div> 
     );
   }
