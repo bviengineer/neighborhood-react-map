@@ -24,7 +24,7 @@ export class Content extends React.Component {
     this.state = { 
       locations: [], 
       fetchedLocations: [],
-      userQuery: ""
+      //userQuery: ""
     }
   }
 
@@ -74,15 +74,14 @@ export class Content extends React.Component {
 
   
   //filterSearch takes the user's search term and sets the state of the userQuery object
-  filterSearch = (search) => {
-    this.setState({ 
-      userQuery: search
-    });
-    this.handleSearch(search);
-  }
+  // filterSearch = (search) => {
+  //   this.setState({ 
+  //     userQuery: search
+  //   });
+  //   this.handleSearch(search);
+  // }
 
   handleSearch = (search) => {
-
     if(search !== ""){
       // set location to filtered locations
     this.setState({locations: this.filterLocations(this.state.locations, search) })
@@ -107,7 +106,7 @@ export class Content extends React.Component {
           tabIndex="0"
           className="search-bar" 
           placeholder={"search venues"} 
-          onChange={(e) => this.filterSearch(e.target.value)}
+          onChange={(e) => this.handleSearch(e.target.value)}
         />
         <Button hideMenu={ `$("button").click(function = () => { $(".side-bar").toggle() })`} />
         <div className="content">
