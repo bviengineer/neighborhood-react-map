@@ -9,7 +9,7 @@ export class SideMenu extends React.Component {
     //console.log("SideMenu component render after setting state ", this.state.userQuery); //verifying props is being passed to SideMenu from content
     return (
       <div className="side-bar">
-        <h4>Venu Results</h4>        
+        <h4>Libraries</h4>        
         <div>
           <ol tabIndex="0">
           {this.props.locations.map(destination => (
