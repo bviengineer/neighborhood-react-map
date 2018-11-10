@@ -37,8 +37,7 @@ export class Content extends React.Component {
         this.setState({
           locations: response.data.response.groups[0].items,
           fetchedLocations: response.data.response.groups[0].items
-        })         
-            //console.log("data after setting state",  this.state.locations); //testing purposes
+        })
       })
       .catch(function(err){
         console.log(err);
@@ -47,7 +46,6 @@ export class Content extends React.Component {
     
   //Will loop through the array of destinations returned from the fetch request   
   addMapMarkers = () => {
-    //console.log("inside addMapMarkers func", window.google); //testing for data
     if (window.google){   
     this.state.locations.map(destination => {              
       //Infowindow variable that will display content on the map marker for a given destination
@@ -57,14 +55,13 @@ export class Content extends React.Component {
         ${destination.venue.location.country}`
       ;
       
-        /* Creats a map marker for each destnation in the array and & adds them to the map and after changing let to var map began loading consistently*/
+        /* Creates a map marker for each destnation in the array and & adds them to the map and after changing let to var map began loading consistently*/
      let marker = new window.google.maps.Marker({
         position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},
         animation: window.google.maps.Animation.DROP,  
         map: window.map,
         title: destination.venue.name
-      });
-  
+      });  
     
       //Event listener for each map marker that will pop up an infowindow
         marker.addListener('click', function(){
@@ -89,11 +86,7 @@ export class Content extends React.Component {
     if(search !== ""){
       // set location to filtered locations
     this.setState({locations: this.filterLocations(this.state.locations, search) })
-    //   this.state.locations.filter(location => {
-    //     console.log('handleSearch method in Content', search, location)
-    //     this.setState({ locations: [] }); //APP FAILS after keypress and WHEN state is set to location
-    //  }); //closing for filter
-    } else {
+     } else {
       // set locations to original 
     this.setState({
       locations: this.state.fetchedLocations
@@ -101,15 +94,12 @@ export class Content extends React.Component {
   }
   }
 
+  //Filter locations based on user query
   filterLocations(locations, query) {
     return locations.filter(location => location.venue.name.toLowerCase().includes(query.toLowerCase()))
   }
 
   render(){
-    // console.log("content component render ", this.state.locations);
-    //let locations = this.state.locations; 
-    //console.log("locations var from content component", locations) //testing to see if returned location data was assigned to var
-    console.log("COUNT", window.google);
     this.addMapMarkers();
     return (
       <div>  
@@ -139,8 +129,8 @@ export class Content extends React.Component {
     a. get user search term - DONE
     b. pass user query to state
     c. Filter locations based on user search query
-6. Animate marker
+6. Animate marker - 1/2 done
 7. service worker - DONE
 8. aria - DONE
-9. responsiveness 
+9. responsiveness 1/2 done
  */

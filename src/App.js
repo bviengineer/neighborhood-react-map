@@ -49,12 +49,12 @@ export class App extends React.Component{
 
   //Google Map setup with initial lat lng parameters 
   initMap = () => {
-    console.log("INIT MAP")
+    console.log("INIT MAP") //test
     const map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: this.state.lat, lng: this.state.lng},
       zoom: 10
     });
-    window.map = map; //? 
+    window.map = map; 
 
      //Creates an info window object that will appear on the map for each destination
     let infowindow = new window.google.maps.InfoWindow();
@@ -62,8 +62,7 @@ export class App extends React.Component{
     
   } //closing curly brace for initMap()
 
-  render(){
-    
+  render(){    
     return(
       <div>
         <Header heading="React Neighborhood Map" />
@@ -95,8 +94,21 @@ TO DO as of 8:22pm EST on 11/08/18
 -filter feature -1/2 DONE
 -service worker - DONE
 -README - DONE
--animate map marker
+-animate map marker mmap or page when a list item is clicked from the filtered list
 -reponsive design
 -error handling
 */
 
+/*
+Sources:  
+  1. Google Map: https://developers.google.com/maps/documentation/javascript/tutorial
+  2. FourSqure API (for venue data): https://developer.foursquare.com/docs/api/venues/explore
+  3. Axios HttpRequest Method: https://github.com/axios/axios
+  4. Info Window: https://developers.google.com/maps/documentation/javascript/infowindows
+  5. Map markers: https://developers.google.com/maps/documentation/javascript/markers    
+  6. Lat | Long coordinates: https://citylatitudelongitude.com/GA/Lawrenceville.htm
+    
+  7. Tutorial https://www.youtube.com/watch?v=W5LhLZqj76s&index=2&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1
+  
+  https://youtu.be/hzLDsxPGctY (fetch tutorial) - DID NOT USE
+*/
