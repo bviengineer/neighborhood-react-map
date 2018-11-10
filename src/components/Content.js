@@ -24,7 +24,6 @@ export class Content extends React.Component {
     this.state = { 
       locations: [], 
       fetchedLocations: [],
-      //userQuery: ""
     }
   }
 
@@ -55,42 +54,33 @@ export class Content extends React.Component {
         ${destination.venue.location.country}`
       ;
       
-        /* Creates a map marker for each destnation in the array and & adds them to the map and after changing let to var map began loading consistently*/
+        // Creates a map marker for each destnation in the array and & adds them to the map
      let marker = new window.google.maps.Marker({
         position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},
         animation: window.google.maps.Animation.DROP,  
         map: window.map,
         title: destination.venue.name
-      });  
+      }); 
     
       //Event listener for each map marker that will pop up an infowindow
         marker.addListener('click', function(){
         window.infowindow.setContent(infoWindowData);
         window.infowindow.open(window.map, marker);
       });
-    }); //closing curly brace & bracket for this.state.loctions.map  
-    }
+      
+    }); //closing curly brace & bracket for this.state.loctions.map
+        
+    } //closing curly brace for if(window.google)
   } //closing curly brace for addMapMarkers
-
-  
-  //filterSearch takes the user's search term and sets the state of the userQuery object
-  // filterSearch = (search) => {
-  //   this.setState({ 
-  //     userQuery: search
-  //   });
-  //   this.handleSearch(search);
-  // }
 
   handleSearch = (search) => {
     if(search !== ""){
       // set location to filtered locations
-    this.setState({locations: this.filterLocations(this.state.locations, search) })
-     } else {
+      this.setState({locations: this.filterLocations(this.state.locations, search) })
+    } else {
       // set locations to original 
-    this.setState({
-      locations: this.state.fetchedLocations
-    })
-  }
+    this.setState({ locations: this.state.fetchedLocations })
+    }
   }
 
   //Filter locations based on user query
@@ -99,6 +89,7 @@ export class Content extends React.Component {
   }
 
   render(){
+    console.log("mapMarkers array ", this.state.mapMarkers)
     this.addMapMarkers();
     return (
       <div>  
@@ -110,8 +101,8 @@ export class Content extends React.Component {
         />
         <Button hideMenu={ `$("button").click(function = () => { $(".side-bar").toggle() })`} />
         <div className="content">
-          <SideMenu locations={this.state.locations} filterSearch={this.filterSearch}/>
-          <Map note="Map is loading..." locations={this.state.locations}/>
+          <SideMenu locations={this.state.locations} />
+          <Map note="Map is loading..." />
         </div>
       </div>
     );
