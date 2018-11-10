@@ -59,7 +59,8 @@ export class Content extends React.Component {
       
         /* Creats a map marker for each destnation in the array and & adds them to the map and after changing let to var map began loading consistently*/
      let marker = new window.google.maps.Marker({
-        position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},  
+        position: {lat: destination.venue.location.lat, lng: destination.venue.location.lng},
+        animation: window.google.maps.Animation.DROP,  
         map: window.map,
         title: destination.venue.name
       });
