@@ -65,7 +65,7 @@ export class App extends React.Component{
   render(){    
     return(
       <div>
-        <Header heading="React Neighborhood Map" />
+        <Header heading="Neighborhood Libraries" />
         <Content /> 
         <Footer heading="Footer Content Here"/>
       </div> 
