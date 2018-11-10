@@ -14,6 +14,10 @@ export class App extends React.Component{
       lng: -83.992234
     }
   }
+
+  componentDidMount(){
+    this.displayMap();
+  }
   /* Sources for initJScript function:
     1. https://www.klaasnotfound.com/2016/11/06/making-google-maps-work-with-react/
     2. https://www.youtube.com/watch?v=W5LhLZqj76s&index=2&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1
@@ -30,7 +34,7 @@ export class App extends React.Component{
     const initialScript = window.document.getElementsByTagName("script")[0]; 
     const newScript = window.document.createElement("script");
     newScript.src = srcURL;
-    newScript.asyn = true;
+    newScript.async = true;
     newScript.defer = true;
     initialScript.parentNode.insertBefore(newScript, initialScript)
   }
@@ -59,7 +63,7 @@ export class App extends React.Component{
   } //closing curly brace for initMap()
 
   render(){
-    this.displayMap();
+    
     return(
       <div>
         <Header heading="React Neighborhood Map" />
