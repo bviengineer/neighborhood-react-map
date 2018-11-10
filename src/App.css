@@ -28,7 +28,7 @@ html, body {
 }
 
 /*===============Site Header===========*/
-header {
+header, footer {
   font-size: 3em;
   text-align: center;
   color: crimson;
