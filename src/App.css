@@ -33,7 +33,7 @@ html, body {
 }
 
 /*===============Site Header===========*/
-header {
+h1 {
   font-size: 3em;
   text-align: center;
   color: green;
@@ -42,8 +42,8 @@ header {
   background-color: floralwhite;
   /* border: 1px solid rgba(10,50,100,0.5); */
   margin: 0;
-  padding: 0.5em 0;
-  overflow: hidden;
+  padding: 0.5em;
+  /* overflow: hidden; */
 }
 
 span {
