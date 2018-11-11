@@ -13,7 +13,7 @@ const searchParams = {
   client_secret: "4Q21F123T1T05GXLBP1TDEHPTPNLFBJKK341OGNFERSIGYDY",
   query: "library",
   near: "Lawrenceville, GA",
-  // limit: 5,  
+  limit: 7,  
   v: "20181015"    
 };
 

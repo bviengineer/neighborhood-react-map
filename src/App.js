@@ -49,7 +49,6 @@ export class App extends React.Component{
 
   //Google Map setup with initial lat lng parameters 
   initMap = () => {
-    console.log("INIT MAP") //test
     const map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: this.state.lat, lng: this.state.lng},
       zoom: 10
@@ -64,8 +63,8 @@ export class App extends React.Component{
 
   render(){    
     return(
-      <div className="app-conatainer">
-        <Header heading="Neighborhood Libraries" />
+      <div className="app-container">
+        <Header />
         <Content /> 
         <Footer />
       </div> 

@@ -94,9 +94,14 @@ h4 {
   font-size: 0.8em;
 }
 
+ol {
+ max-height: 100px;  
+}
+
 ol li {
-  padding: 5px 0 5px ;
-  text-align: left;
+  padding: 5px 0;
+  text-align: left;   
+  font-size: 1em;
 }
 
 

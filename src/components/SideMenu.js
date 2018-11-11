@@ -18,7 +18,7 @@ export class SideMenu extends React.Component {
               <br/>
               {destination.venue.location.formattedAddress[0]}<br/>
               {destination.venue.location.formattedAddress[1]}<br/>
-              {destination.venue.location.formattedAddress[2]}
+              {/* {destination.venue.location.formattedAddress[2]} */}
               <hr/>
             </li>
           ))}
