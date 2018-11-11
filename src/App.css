@@ -12,18 +12,16 @@ html, body {
   padding: 0;
 }
 
-
 /*=============Content Area=========*/
 .content {
   display: grid;
   grid-template-columns: 2fr 7fr;
-  /* grid-template-rows: auto auto; */
+  /* grid-template-rows:  40em 40em;   */
 }
 
 /*===============Map================*/
 #map {
   height: 100vh;
-  overflow: hidden;
 }
 
 .map-loading {
@@ -32,7 +30,7 @@ html, body {
   text-align: center;
 }
 
-/*===============Site Header===========*/
+/*===============Header & Footer===========*/
 h1 {
   font-size: 3em;
   text-align: center;
@@ -40,17 +38,14 @@ h1 {
   font-weight: bold;
   font-style: italic;
   background-color: floralwhite;
-  /* border: 1px solid rgba(10,50,100,0.5); */
   margin: 0;
   padding: 0.5em;
-  /* overflow: hidden; */
 }
 
 span {
   color: goldenrod;
 }
 
-/*===============Site Footer===========*/
 footer {  
   font-size: 1em;
   text-align: center;
@@ -58,7 +53,6 @@ footer {
   font-weight: bold;
   font-style: italic;
   background-color: floralwhite;
-  /* border: 1px solid rgba(10,50,100,0.5); */
   margin: 0;
   padding: 0.5em 0;
   overflow: hidden;
@@ -79,9 +73,10 @@ footer {
   margin: 0;  
   text-align: center;
   background-color: antiquewhite;
-  /* border: 1px solid rgba(10,50,100,0.5); */
 }
 
+
+/*===============Side Menu================*/
 h4 {
   text-align: center; 
   font-size: 2em;
@@ -93,35 +88,24 @@ h4 {
 }
 
 .side-bar {
-  float: left; 
   padding: 5px;
   border: 2px solid rgba(10,50,100,0.5);
   background-color: rgba(100,100,100,0);
   font-size: 0.8em;
 }
 
-/* ol {
- max-height: 100px;  
-} */
+
+ol {
+ overflow-y: scroll;  
+ height: 40em;
+}
 
 ol li {
   padding: 5px 0;
   text-align: left;   
   font-size: 1em;
-}
-
-/* button {
-   float: left; 
-  background-color: rgba(10,50,100,0.1);
-  color: crimson;
-  font-size: 1.5em;
-  width: 50px;
 } 
 
-button:hover {
-  background-color: crimson;
-  color: white;
-} */
 
 /*==============Media Queries=============*/
 @media screen and (max-width: 720px){
