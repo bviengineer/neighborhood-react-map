@@ -11,7 +11,7 @@ const searchParams = {
   client_secret: "4Q21F123T1T05GXLBP1TDEHPTPNLFBJKK341OGNFERSIGYDY",
   query: "library",
   near: "Lawrenceville, GA",
-  limit: 7,  
+  //limit: 7,  
   v: "20181015"    
 };
 
@@ -23,8 +23,12 @@ export class Content extends React.Component {
       locations: [], 
       fetchedLocations: [],
     }
+  
   }
 
+  //array will hold map markers
+  markers = [];
+  
   //Method will call API after map renders
   componentDidMount(){
     //Will get data from fourSquare API
@@ -65,7 +69,7 @@ export class Content extends React.Component {
         window.infowindow.setContent(infoWindowData);
         window.infowindow.open(window.map, marker);
       });
-      
+      this.markers.push(marker); //will push map markers into map markers array
     }); //closing curly brace & bracket for this.state.loctions.map
         
     } //closing curly brace for if(window.google)
@@ -86,7 +90,13 @@ export class Content extends React.Component {
     return locations.filter(location => location.venue.name.toLowerCase().includes(query.toLowerCase()))
   }
 
+  //Will clear map markers array
+  clearMarkers = () => {
+    this.markers.map(marker => marker.setMap(null))
+  }
+
   render(){
+    this.clearMarkers();
     this.addMapMarkers();
     return (
       <div>  
