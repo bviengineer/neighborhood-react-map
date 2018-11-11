@@ -11,9 +11,9 @@ export class SideMenu extends React.Component {
       <div className="side-bar">
         <h4>Libraries</h4>        
         <div>
-          <ol tabIndex="0">
+          <ol role="list" tabIndex="0">
           {this.props.locations.map(destination => (
-            <li tabIndex="0" key={destination.venue.name}>
+            <li role="link" tabIndex="0" key={destination.venue.name}>
               <strong>{destination.venue.name}</strong>
               <br/>
               {destination.venue.location.formattedAddress[0]}<br/>

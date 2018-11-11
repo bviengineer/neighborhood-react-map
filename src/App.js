@@ -64,7 +64,7 @@ export class App extends React.Component{
 
   render(){    
     return(
-      <div>
+      <div className="app-conatainer">
         <Header heading="Neighborhood Libraries" />
         <Content /> 
         <Footer />

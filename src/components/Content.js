@@ -89,7 +89,6 @@ export class Content extends React.Component {
   }
 
   render(){
-    console.log("mapMarkers array ", this.state.mapMarkers)
     this.addMapMarkers();
     return (
       <div>  
