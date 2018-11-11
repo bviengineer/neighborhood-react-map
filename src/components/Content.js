@@ -98,7 +98,6 @@ export class Content extends React.Component {
           placeholder={"search venues"} 
           onChange={(e) => this.handleSearch(e.target.value)}
         />
-        <Button hideMenu={ `$("button").click(function = () => { $(".side-bar").toggle() })`} />
         <div className="content">
           <SideMenu locations={this.state.locations} />
           <Map note="Map is loading..." />
