@@ -12,7 +12,10 @@ The project was built using **ReactJS, Google Maps API, FourSqure API and Aixos 
     * npm -v then enter key
     * If the results of running each command returns with version numbers, node and npm are installed, otherwise, please install node/npm.
 * Run npm install to update the project with dependencies
-* Run npm start and the page will automatically open in your default browser
+* To run a production version of the project, please do the following: 
+    * From the command prompt inside the project directory 
+        * npm run serve
+        * then visit localhost:5000
 
 # Credits
 * [ReactJs](https://reactjs.org/)
