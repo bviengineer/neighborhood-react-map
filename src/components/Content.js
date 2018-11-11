@@ -1,9 +1,7 @@
 import React from "react";
-import { Map } from "./Map.js"; //to hold map
-import { SideMenu } from "./SideMenu.js"; //display list of returned locations
-import { Button } from "./button.js";
-import axios from "axios"; //will handle request to API
-//import FourSqureAPI from "../api/index.js"; //GETTING DATA whether or not this is imported 
+import { Map } from "./Map.js";
+import { SideMenu } from "./SideMenu.js";
+import axios from "axios";
 
 
 //VARIABLES
