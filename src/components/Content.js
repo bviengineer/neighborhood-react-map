@@ -24,11 +24,12 @@ export class Content extends React.Component {
     this.state = { 
       locations: [], 
       fetchedLocations: [],
+      filteredLocations: []
     }  
   }
 
   //array will hold map markers
-  markers = [];
+  markersArr = [];
   
   //Method will call API after map renders
   componentDidMount(){
@@ -70,7 +71,7 @@ export class Content extends React.Component {
         window.infowindow.setContent(infoWindowData);
         window.infowindow.open(window.map, marker);
       });
-      this.markers.push(marker); //will push map markers into map markers array
+      this.markersArr.push(marker); //will push map markers into map markers array
     }); //closing curly brace & bracket for this.state.loctions.map
         
     } //closing curly brace for if(window.google)
@@ -93,7 +94,7 @@ export class Content extends React.Component {
 
   //Will clear map markers array
   clearMarkers = () => {
-    this.markers.map(marker => marker.setMap(null))
+    this.markersArr.map(marker => marker.setMap(null))
   }
 
   render(){
