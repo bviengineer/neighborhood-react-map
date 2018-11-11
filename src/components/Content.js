@@ -92,12 +92,14 @@ export class Content extends React.Component {
     this.addMapMarkers();
     return (
       <div>  
-        <input 
-          tabIndex="0"
-          className="search-bar" 
-          placeholder={"search venues"} 
-          onChange={(e) => this.handleSearch(e.target.value)}
-        />
+        <div className="input-div">
+          <input 
+            tabIndex="0" 
+            placeholder={"search venues"} 
+            className="search-bar"
+            onChange={(e) => this.handleSearch(e.target.value)}
+          />
+        </div>
         <div className="content">
           <SideMenu locations={this.state.locations} />
           <Map note="Map is loading..." />
