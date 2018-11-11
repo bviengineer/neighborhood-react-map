@@ -55,9 +55,9 @@ export class App extends React.Component{
     });
     window.map = map; 
 
-    window.gm_authfailure = () => { 
-      alert("That's rough, something went wrong! Can you try again?");
-    }
+      window.gm_authfailure = () => { 
+        alert("The Google map failed to load! Can you try again?");
+      }
 
      //Creates an info window object that will appear on the map for each destination
     let infowindow = new window.google.maps.InfoWindow();
