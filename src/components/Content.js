@@ -10,10 +10,12 @@ const searchParams = {
   client_id: "0TL2LRJP0WLJYNYCVGZKZ4L1YRG50I5CLNP2XG0DUVSUEB2O",
   client_secret: "4Q21F123T1T05GXLBP1TDEHPTPNLFBJKK341OGNFERSIGYDY",
   query: "library",
-  near: "Lawrenceville, GA",
+  ll: "33.952879, -83.992234",
+  radius: 32186.9,
   //limit: 7,  
   v: "20181015"    
 };
+
 
 //Rendering in App.js
 export class Content extends React.Component {
