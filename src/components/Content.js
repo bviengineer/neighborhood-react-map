@@ -24,8 +24,7 @@ export class Content extends React.Component {
     this.state = { 
       locations: [], 
       fetchedLocations: [],
-    }
-  
+    }  
   }
 
   //array will hold map markers
