@@ -55,6 +55,7 @@ export class App extends React.Component{
     });
     window.map = map; 
 
+      //Will display an error message if Google map fails to load
       window.gm_authfailure = () => { 
         alert("The Google map failed to load! Can you try again?");
       }
@@ -75,43 +76,3 @@ export class App extends React.Component{
     );
   }
 }
-
-/* App Component Renders:
-1. Title bar or heading - DONE
-2. Content componenet
-    Renders:
-    a. sidebar componenet - DONE
-    b. map component - DONE
-    c. api request to get data from API & pass it to map & sidebar - DONE
-3. Apply info window & map markers to map
-
-4. Footer component - DONE
-5. Initialize map -  DONE
-
-observations:
--map loads sometimes and sometimes doesn't due to map markers issue 
-
-TO DO as of 8:22pm EST on 11/08/18
--aria - DONE
--map markers - 1/2 DONE
--filter feature -1/2 DONE
--service worker - DONE
--README - DONE
--animate map marker mmap or page when a list item is clicked from the filtered list
--reponsive design
--error handling
-*/
-
-/*
-Sources:  
-  1. Google Map: https://developers.google.com/maps/documentation/javascript/tutorial
-  2. FourSqure API (for venue data): https://developer.foursquare.com/docs/api/venues/explore
-  3. Axios HttpRequest Method: https://github.com/axios/axios
-  4. Info Window: https://developers.google.com/maps/documentation/javascript/infowindows
-  5. Map markers: https://developers.google.com/maps/documentation/javascript/markers    
-  6. Lat | Long coordinates: https://citylatitudelongitude.com/GA/Lawrenceville.htm
-    
-  7. Tutorial https://www.youtube.com/watch?v=W5LhLZqj76s&index=2&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1
-  
-  https://youtu.be/hzLDsxPGctY (fetch tutorial) - DID NOT USE
-*/
