@@ -5,7 +5,7 @@ export class ErrorBoundary extends React.Component{
   constructor(props){
     super(props);
     this.state = { 
-      hasError: null
+      hasError: false 
     }
   }
   
@@ -15,7 +15,7 @@ export class ErrorBoundary extends React.Component{
 
   render(){
     if(this.state.hasError){
-      console.log(this.state.hasError)
+      console.log(this.t)
       return document.getElementById("map").innerHTML = <h1>Google Map failed</h1>
     }
     return this.props.children
