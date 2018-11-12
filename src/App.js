@@ -44,7 +44,7 @@ export class App extends React.Component{
   
   //Calls initJScript & builds URL passed to function as a parameter used in making map API call
   displayMap = () => {
-    this.initJScript("https://maps.googleapis.com/maps/api/js?key=IzaSyASu5vRNNzFx1JFJz7SVAIJJoRH9VJcST4&callback=initMap");
+    this.initJScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyASu5vRNNzFx1JFJz7SVAIJJoRH9VJcST4&callback=initMap");
     
     //Binds initMap callback function to the window object 
     window.initMap = this.initMap;
