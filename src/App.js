@@ -18,6 +18,7 @@ export class App extends React.Component{
   componentDidMount(){
     this.displayMap();
   }
+
   /* Sources for initJScript function:
     1. https://www.klaasnotfound.com/2016/11/06/making-google-maps-work-with-react/
     2. https://www.youtube.com/watch?v=W5LhLZqj76s&index=2&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1
@@ -36,12 +37,14 @@ export class App extends React.Component{
     newScript.src = srcURL;
     newScript.async = true;
     newScript.defer = true;
+    newScript.onError = this.mapLoadFail();
     initialScript.parentNode.insertBefore(newScript, initialScript)
   }
 
+  
   //Calls initJScript & builds URL passed to function as a parameter used in making map API call
   displayMap = () => {
-    this.initJScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyASu5vRNNzFx1JFJz7SVAIJJoRH9VJcST4&callback=initMap");
+    this.initJScript("https://maps.googleapis.com/maps/api/js?key=IzaSyASu5vRNNzFx1JFJz7SVAIJJoRH9VJcST4&callback=initMap");
     
     //Binds initMap callback function to the window object 
     window.initMap = this.initMap;
@@ -55,18 +58,20 @@ export class App extends React.Component{
     });
     window.map = map; 
 
-      //Will display an error message if Google map fails to load
-      window.gm_authfailure = () => { 
-        alert("The Google map failed to load! Can you try again?");
-      }
-
      //Creates an info window object that will appear on the map for each destination
     let infowindow = new window.google.maps.InfoWindow();
     window.infowindow = infowindow;        
     
   } //closing curly brace for initMap()
 
-  render(){    
+  mapLoadFail(){
+    if(!window.map){
+      alert("Google map fail to load, please try again");
+    } else {
+      console.log("map is up and running");
+    }
+  }
+  render(){   
     return(
       <div className="app-container">
         <Header />
