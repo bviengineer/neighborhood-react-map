@@ -11,12 +11,17 @@ export class App extends React.Component{
     super(props);
     this.state = {
       lat: 33.952879,
-      lng: -83.992234
+      lng: -83.992234,
+      mapError: false
     }
   }
 
   componentDidMount(){
     this.displayMap();
+  }
+
+  componentDidCath(){
+    this.setState({ mapError: true })
   }
 
   /* Sources for initJScript function:
@@ -37,14 +42,14 @@ export class App extends React.Component{
     newScript.src = srcURL;
     newScript.async = true;
     newScript.defer = true;
-    newScript.onError = this.mapLoadFail();
+    //newScript.onError = this.mapLoadFail();
     initialScript.parentNode.insertBefore(newScript, initialScript)
   }
 
   
   //Calls initJScript & builds URL passed to function as a parameter used in making map API call
   displayMap = () => {
-    this.initJScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyASu5vRNNzFx1JFJz7SVAIJJoRH9VJcST4&callback=initMap");
+    this.initJScript("https://maps.googleapis.com/maps/api/js?key=IzaSyASu5vRNNzFx1JFJz7SVAIJJoRH9VJcST4&callback=initMap");
     
     //Binds initMap callback function to the window object 
     window.initMap = this.initMap;
@@ -64,14 +69,14 @@ export class App extends React.Component{
     
   } //closing curly brace for initMap()
 
-  mapLoadFail(){
-    if(!window.map){
-      alert("Google map fail to load, please try again");
-    } else {
-      console.log("map is up and running");
-    }
-  }
-  render(){   
+  // mapLoadFail(){
+  //   console.log(error);
+  //   alert("map load failed");
+  // }
+  render(){
+    if(this.state.mapError === true){
+      return alert("map failed to load");
+    }   
     return(
       <div className="app-container">
         <Header />
