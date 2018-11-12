@@ -116,19 +116,3 @@ export class Content extends React.Component {
     );
   }
 }
-
-/*
-1. get locations data using component did mount life - DONE
-2. put that data in a state - DONE 
-3.  define props for both map componet and sidebar
-4. Go to each child componet and 
- utlize data
-5. work search feature
-    a. get user search term - DONE
-    b. pass user query to state
-    c. Filter locations based on user search query
-6. Animate marker - 1/2 done
-7. service worker - DONE
-8. aria - DONE
-9. responsiveness 1/2 done
- */
