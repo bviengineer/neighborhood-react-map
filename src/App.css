@@ -19,6 +19,12 @@ html, body {
   /* grid-template-rows:  40em 40em;   */
 }
 
+  /* For map failure */
+h3 {
+  text-align: center;
+  color: red;
+}
+
 /*===============Map================*/
 #map {
   height: 100vh;
