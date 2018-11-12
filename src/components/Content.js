@@ -15,7 +15,6 @@ const searchParams = {
   v: "20181015"    
 };
 
-
 //Rendering in App.js
 export class Content extends React.Component {
   constructor(props){
@@ -110,7 +109,7 @@ export class Content extends React.Component {
         </div>
         <div className="content">
           <SideMenu mapMarkers={this.markersObject} locations={this.state.locations} />
-          <Map note="Map is loading..." />
+            <Map note="Map is loading..." />
         </div>
       </div>
     );

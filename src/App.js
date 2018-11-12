@@ -1,7 +1,8 @@
 import React from "react"; 
-import { Header } from "./components/Header.js"; //header bar
-import { Content } from "./components/Content.js"; //content container
-import { Footer } from "./components/Footer.js"; //footer information
+import { Header } from "./components/Header.js";
+import { Content } from "./components/Content.js";
+import { ErrorBoundary } from "./components/errorBoundary";
+import { Footer } from "./components/Footer.js"; 
 import './App.css'; 
 
 
@@ -11,17 +12,12 @@ export class App extends React.Component{
     super(props);
     this.state = {
       lat: 33.952879,
-      lng: -83.992234,
-      mapError: false
+      lng: -83.992234
     }
   }
 
   componentDidMount(){
     this.displayMap();
-  }
-
-  componentDidCath(){
-    this.setState({ mapError: true })
   }
 
   /* Sources for initJScript function:
@@ -42,7 +38,6 @@ export class App extends React.Component{
     newScript.src = srcURL;
     newScript.async = true;
     newScript.defer = true;
-    //newScript.onError = this.mapLoadFail();
     initialScript.parentNode.insertBefore(newScript, initialScript)
   }
 
@@ -69,18 +64,13 @@ export class App extends React.Component{
     
   } //closing curly brace for initMap()
 
-  // mapLoadFail(){
-  //   console.log(error);
-  //   alert("map load failed");
-  // }
-  render(){
-    if(this.state.mapError === true){
-      return alert("map failed to load");
-    }   
+  render(){   
     return(
       <div className="app-container">
         <Header />
-        <Content /> 
+        <ErrorBoundary>
+          <Content />
+        </ErrorBoundary>       
         <Footer />
       </div> 
     );
