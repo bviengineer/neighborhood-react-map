@@ -1,7 +1,6 @@
-import React from "react"; 
+import React from "react";
 import { Header } from "./components/Header.js";
 import { Content } from "./components/Content.js";
-import { ErrorBoundary } from "./components/errorBoundary";
 import { Footer } from "./components/Footer.js"; 
 import './App.css'; 
 
@@ -38,6 +37,9 @@ export class App extends React.Component{
     newScript.src = srcURL;
     newScript.async = true;
     newScript.defer = true;
+    /*newScript.onerror = function(){
+      alert("Google Map fail to load please try again");
+    }; */
     initialScript.parentNode.insertBefore(newScript, initialScript)
   }
 
@@ -61,16 +63,14 @@ export class App extends React.Component{
      //Creates an info window object that will appear on the map for each destination
     let infowindow = new window.google.maps.InfoWindow();
     window.infowindow = infowindow;        
-    
+
   } //closing curly brace for initMap()
 
   render(){   
     return(
       <div className="app-container">
         <Header />
-        <ErrorBoundary>
-          <Content />
-        </ErrorBoundary>       
+        <Content />       
         <Footer />
       </div> 
     );
