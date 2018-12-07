@@ -1,5 +1,5 @@
 # React Neighborhood Map 
-This web application allows users to view, filter the list of and select a library location in the vicinity of Lawrenceville, GA. 
+This singple page application (SPA) allows users to view, filter the list of and select a library location in the vicinity of Lawrenceville, GA. It is accessible and usable offline.
 
 The project was built using **ReactJS, Google Maps API, FourSqure API and Aixos HTTP client**, and  is part of the Udacity Front End Nanodegree, project work.  [**Create-React-App**](https://github.com/facebook/create-react-app) was the starting point for the project.
 
@@ -25,3 +25,4 @@ The project was built using **ReactJS, Google Maps API, FourSqure API and Aixos 
 * [Klass Not Found - Making Google Map Work with React](https://www.klaasnotfound.com/2016/11/06/making-google-maps-work-with-react//)
 * [Yahya Elharony](https://www.youtube.com/watch?v=W5LhLZqj76s&index=2&list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1)
 * One-on-one mentoring from Kehinde[FEND] - Udacity Scholar and Student Leader, and tutorials from various other Udacity Front End Scholars.
+
