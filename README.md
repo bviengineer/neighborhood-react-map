@@ -4,18 +4,20 @@ This singple page application (SPA) allows users to view, filter the list of and
 The project was built using **ReactJS, Google Maps API, FourSqure API and Aixos HTTP client**, and  is part of the Udacity Front End Nanodegree, project work.  [**Create-React-App**](https://github.com/facebook/create-react-app) was the starting point for the project.
 
 # View Project
-* Clone the repository
-* Using your command prompt (CLI), navigate to the project directory
-* Install node package manager (npm). Note, npm is automatically installed during the installation of node.
-  * To determine if you already have node and npm installed, go to your command prompt and check the versions by typing:
-    * node -v then enter key
-    * npm -v then enter key
-    * If the results of running each command returns with version numbers, node and npm are installed, otherwise, please install node/npm.
-* Run npm install to update the project with dependencies
-* To run a production version of the project, please do the following: 
-    * From the command prompt inside the project directory 
-        * npm run serve
-        * then visit localhost:5000
+* View a hosted copy of the project [here](https://xenodochial-galileo-347e00.netlify.com/)
+* Alternataively, you may: 
+    * Clone the repository
+    * Using your command prompt (CLI), navigate to the project directory
+    * Install node package manager (npm). Note, npm is automatically installed during the installation of node.
+        * To determine if you already have node and npm installed, go to your command prompt and check the versions by typing:
+            * node -v then enter key
+            * npm -v then enter key
+            * If the results of running each command returns with version numbers, node and npm are installed, otherwise, please install node/npm.
+    * Run npm install to update the project with dependencies
+    * To run a production version of the project, please do the following: 
+        * From the command prompt inside the project directory 
+            * npm run serve
+            * then visit localhost:5000
 
 # Credits
 * [ReactJs](https://reactjs.org/)
